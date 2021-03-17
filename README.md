@@ -6,4 +6,6 @@ Engine3 is a simple java game engine. Feel free to use it and / or send feedback
 I used this engine or as it is in the moment fileSystem quiet often in different projects. After all im happy with it.
 The Engine is written in java open jdk 15. Versions down to open jdk 11 should also work. 
  
-Engine3 does not support infinity ticks per second. However it uses double buffering as default
+Engine3 does not support infinity ticks per second. However it uses double buffering set as default
+
+Please note that not all classes are made public now. Some classes like collision testing classes or other tools are private in the moment. I will add them as I find them
