@@ -3,13 +3,13 @@ package tools.rect;
 /**
  * The Rect class is a blue print for a data holder. It can hold x,y, width and
  * height values. All of those are from the data type int. The default for x and
- * y is 0 the default for w and h however, is 10.
+ * y is 0 the default for w and h however, is 1.
  *
  */
 
 public class Rect
 {
-	private int x, y, w = 10, h = 10;
+	protected int x, y, w = 1, h = 1;
 
 	public Rect(int x, int y)
 	{
@@ -25,42 +25,90 @@ public class Rect
 		setH(h);
 	}
 
-	public final int getX()
+	/**
+	 * The IncrementX method will add the incrementX value to the current x value of
+	 * this rect.
+	 * 
+	 * @param incrementX
+	 */
+
+	public final void incrementX(int incrementX)
+	{
+		setX(getX() + incrementX);
+	}
+	
+	/**
+	 * The IncrementY method will add the incrementY value to the current y value of
+	 * this rect.
+	 * 
+	 * @param incrementY
+	 */
+
+	public final void incrementY(int incrementY)
+	{
+		setY(getY() + incrementY);
+	}
+	
+	/**
+	 * The IncrementW method will add the incrementW value to the current w value of
+	 * this rect.
+	 * 
+	 * @param incrementW
+	 */
+
+	public final void incrementW(int incrementW)
+	{
+		setW(getW() + incrementW);
+	}
+	
+	/**
+	 * The IncrementH method will add the incrementH value to the current h value of
+	 * this rect.
+	 * 
+	 * @param incrementH
+	 */
+
+	public final void incrementH(int incrementH)
+	{
+		setH(getH() + incrementH);
+	}
+
+	public int getX()
 	{
 		return x;
 	}
 
-	public final int getY()
+	public int getY()
 	{
 		return y;
 	}
 
-	public final int getW()
+	public int getW()
 	{
 		return w;
 	}
 
-	public final int getH()
+	public int getH()
 	{
 		return h;
 	}
 
-	public final void setX(int x)
+	public void setX(int x)
 	{
 		this.x = x;
 	}
 
-	public final void setY(int y)
+	public void setY(int y)
 	{
 		this.y = y;
 	}
 
-	public final void setW(int w)
+	public void setW(int w)
 	{
 		this.w = w;
 	}
 
-	public final void setH(int h)
+	public void setH(int h)
 	{
 		this.h = h;
 	}
