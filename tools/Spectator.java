@@ -1,10 +1,12 @@
-package tools.spectator;
+package tools;
 
+import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 import globalValues.GlobalValue;
 import handler.OnKeyPress;
-import tools.Camera;
+import handler.OnKeyRelease;
+import main.Draw;
 import tools.keySet.KeySet;
 import tools.rect.Rect;
 
@@ -19,21 +21,58 @@ import tools.rect.Rect;
  *
  */
 
-public class Spectator implements OnKeyPress
+public class Spectator implements OnKeyPress, OnKeyRelease, Draw
 {
 	private final int SPEED = 8;
-	
+
 	private double spectatorZoom = 1;
 	private final double ZOOM_INCREMENT = 0.2;
 
 	private Camera camera = new Camera();
 	private Rect spectatorLocation = new Rect(0, 0);
+	private Rect spectatorAccelaration = new Rect(0, 0);
 	private KeySet zoom = new KeySet(KeyEvent.VK_MINUS, KeyEvent.VK_PLUS, 0, 0);
 	private KeySet movement = new KeySet(KeyEvent.VK_DOWN, KeyEvent.VK_UP, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT);
 
 	public Spectator()
 	{
 		GlobalValue.getKeyEventHandler().addOnKeyPress(this);
+		GlobalValue.getKeyEventHandler().addOnKeyRelease(this);
+	}
+
+	@Override
+	public void draw(Graphics2D graphics)
+	{
+
+		/* compute location values */
+		spectatorLocation.incrementX(spectatorAccelaration.getX());
+		spectatorLocation.incrementY(spectatorAccelaration.getY());
+
+		/* change camera location and zoom */
+		camera.setZoom(spectatorZoom);
+		camera.setOffsetX(spectatorLocation.getX());
+		camera.setOffsetY(spectatorLocation.getY());
+	}
+
+	@Override
+	public void onKeyRelease(KeyEvent e)
+	{
+		int key = e.getKeyCode();
+
+		/* movement */
+		if (key == movement.moveDown())
+		{
+			spectatorAccelaration.setY(getZero());
+		} else if (key == movement.moveUp())
+		{
+			spectatorAccelaration.setY(getZero());
+		} else if (key == movement.moveRight())
+		{
+			spectatorAccelaration.setX(getZero());
+		} else if (key == movement.moveLeft())
+		{
+			spectatorAccelaration.setX(getZero());
+		}
 	}
 
 	@Override
@@ -44,16 +83,16 @@ public class Spectator implements OnKeyPress
 		/* movement */
 		if (key == movement.moveDown())
 		{
-			spectatorLocation.incrementY(-SPEED);
+			spectatorAccelaration.setY(SPEED);
 		} else if (key == movement.moveUp())
 		{
-			spectatorLocation.incrementY(SPEED);
+			spectatorAccelaration.setY(-SPEED);
 		} else if (key == movement.moveRight())
 		{
-			spectatorLocation.incrementX(-SPEED);
+			spectatorAccelaration.setX(SPEED);
 		} else if (key == movement.moveLeft())
 		{
-			spectatorLocation.incrementX(SPEED);
+			spectatorAccelaration.setX(-SPEED);
 		}
 
 		/* zoom */
@@ -64,15 +103,15 @@ public class Spectator implements OnKeyPress
 		{
 			spectatorZoom += ZOOM_INCREMENT;
 		}
-		
-		/* change camera location and zoom */
-		camera.setZoom(spectatorZoom);
-		camera.setOffsetX(spectatorLocation.getX());
-		camera.setOffsetY(spectatorLocation.getY());
 	}
 
 	public final Camera getCamera()
 	{
 		return camera;
+	}
+
+	private final int getZero()
+	{
+		return 0;
 	}
 }
