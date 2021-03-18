@@ -8,7 +8,7 @@ import main.Draw;
 import tools.rect.VRect;
 
 /**
- * In a nutshel the Background class is a black Rect wich is as big as the
+ * In a nutshel the Background class is a black Rect which is as big as the
  * screen. Therefore, it is possible to overpaint old frames so that animations
  * like character movements can be made posible.
  */
