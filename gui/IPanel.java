@@ -13,6 +13,7 @@ import globalValues.GlobalValue;
 
 class IPanel extends JPanel
 {
+	/* this is the image on which the whole program draws on */
 	private BufferedImage iImage = new BufferedImage(GlobalValue.getScreenDimension().width,
 			GlobalValue.getScreenDimension().height, BufferedImage.TYPE_INT_RGB);
 
@@ -27,12 +28,14 @@ class IPanel extends JPanel
 			public void mouseMoved(MouseEvent e)
 			{
 				GlobalValue.setMouseLocation(e.getPoint());
+				GlobalValue.getMouseEventHandler().triggerOnMouseMove(e);
 			}
 
 			@Override
 			public void mouseDragged(MouseEvent e)
 			{
 				GlobalValue.setMouseLocation(e.getPoint());
+				GlobalValue.getMouseEventHandler().triggerOnMouseDrag(e);
 			}
 		});
 
