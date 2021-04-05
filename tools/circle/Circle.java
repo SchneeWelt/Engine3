@@ -10,6 +10,14 @@ package tools.circle;
 public class Circle
 {
 	protected int x, y, r = 10;
+	
+	/* clone constructor */
+	public Circle(Circle circle)
+	{
+		setX(circle.getX());
+		setY(circle.getY());
+		setR(circle.getR());
+	}
 
 	public Circle(int x, int y)
 	{
