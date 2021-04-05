@@ -33,6 +33,22 @@ public class Rect
 		setW(w);
 		setH(h);
 	}
+	
+	@Override
+	public String toString()
+	{
+		String output = "X:" + x;
+		output += " ";
+		output += "Y:" + y;
+		output += " ";
+		output += "W:" + w;
+		output += " ";
+		output += "H:" + h;
+		output += "\n";
+		output += "Default:" + super.toString();
+
+		return output;
+	}
 
 	/**
 	 * The IncrementX method will add the incrementX value to the current x value of
