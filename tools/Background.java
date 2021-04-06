@@ -42,13 +42,13 @@ public class Background implements Draw
 		body.draw(graphics);
 	}
 
-	private VRect createBody(Color color)
+	private void createBody(Color color)
 	{
 		int x = 0;
 		int y = 0;
 		int w = GlobalValue.getScreenDimension().width;
 		int h = GlobalValue.getScreenDimension().height;
 
-		return new VRect(x, y, w, h, color);
+		body = new VRect(x, y, w, h, color);
 	}
 }
