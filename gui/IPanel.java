@@ -11,10 +11,10 @@ import javax.swing.JPanel;
 
 import globalValues.GlobalValue;
 
-class IPanel extends JPanel
+public class IPanel extends JPanel
 {
 	/* this is the image on which the whole program draws on */
-	private BufferedImage iImage = new BufferedImage(GlobalValue.getScreenDimension().width,
+	private static BufferedImage iImage = new BufferedImage(GlobalValue.getScreenDimension().width,
 			GlobalValue.getScreenDimension().height, BufferedImage.TYPE_INT_RGB);
 
 	public IPanel()
@@ -71,6 +71,11 @@ class IPanel extends JPanel
 			}
 		});
 	}
+	
+	public static final BufferedImage getIImage()
+	{
+		return iImage;
+	}
 
 	public final Graphics2D getIPanelGraphics()
 	{
@@ -81,7 +86,6 @@ class IPanel extends JPanel
 	protected void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-
 		g.drawImage(iImage, 0, 0, null);
 	}
 }
