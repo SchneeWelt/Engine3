@@ -26,7 +26,13 @@ public class CRect extends Rect
 
 	public final boolean isCollision(CRect other)
 	{
-		Rectangle r = new Rectangle(x, y, w, h).intersection(new Rectangle(other.getX(), other.getY(), other.getW(), other.getH()));
-		return (r != null);
+		int x = other.getX();
+		int y = other.getY();
+		int w = other.getW();
+		int h = other.getH();
+		Rectangle r1 = new Rectangle(x, y, w, h);
+		Rectangle r2 = new Rectangle(this.x, this.y, this.w, this.h);
+		
+		return r1.intersects(r2);
 	}
 }
