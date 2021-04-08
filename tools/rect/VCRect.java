@@ -54,7 +54,10 @@ public class VCRect extends CRect implements Draw
 	@Override
 	public void draw(Graphics2D graphics)
 	{
-		displayOutline(graphics);
+		if (isDisplayOutline())
+		{
+			displayOutline(graphics);
+		}
 	}
 
 	protected void displayOutline(Graphics2D graphics)
