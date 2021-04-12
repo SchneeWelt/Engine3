@@ -30,14 +30,11 @@ public class ImageLoader
 
 	public static final BufferedImage loadImageInstance(int x, int y, int w, int h, String path)
 	{
-		try
-		{
-			return ImageIO.read(new File(path)).getSubimage(x, y, w, h);
-		} catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-
-		return null;
+		return loadImage(path).getSubimage(x, y, w, h);
+	}
+	
+	public static final BufferedImage loadImageInstance(int x, int y, int w, int h, BufferedImage parent)
+	{
+		return parent.getSubimage(x, y, w, h);
 	}
 }
