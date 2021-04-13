@@ -3,11 +3,6 @@ package tools.rect;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-package tools.rect;
-
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-
 /**
  * The IRect or ImageRect is a VisibleRect wich can display an image or texture
  * on it. The Image has to be parsed with the creation of this object. However,
