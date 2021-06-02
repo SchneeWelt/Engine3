@@ -2,55 +2,29 @@ package main;
 
 import java.awt.Graphics2D;
 
-import globalValues.GlobalValue;
-import gui.IFrame;
-import gui.RepaintControler;
-
-public class Main implements Draw
+public class Main extends Clock
 {
-	private IFrame iFrame = new IFrame("Rect Game");
-
 	public Main()
 	{
-		setup();
-
-		/* game loop */
-		while (true)
-		{
-			sleep();
-			draw(iFrame.getIPanelGraphics());
-			RepaintControler.getRepaintControler().repaintIPanel();
-		}
+		super();
 	}
 
 	/*
-	 * The draw method is called every new tick.
+	 * Die Draw methode wird mit jeden neuen Tick neu aufgerufen. Nur wenn auch die
+	 * repaintCanvas() methode aufgerufen wird, wird ebenfalls eine Aktualisierte
+	 * Version des graphics objektes mit übergeben.
 	 */
 
 	@Override
 	public final void draw(Graphics2D graphics)
 	{
+		super.draw(graphics);
+
 		/* camera layer */
 
 		/* background layer */
 
 		/* foreground layer */
-	}
-
-	private final void sleep()
-	{
-		try
-		{
-			Thread.sleep((int) GlobalValue.getTickrate());
-		} catch (InterruptedException e)
-		{
-			e.printStackTrace();
-		}
-	}
-
-	private final void setup()
-	{
-		RepaintControler.initReapaintControler(iFrame);
 	}
 
 	public static void main(String[] args)
