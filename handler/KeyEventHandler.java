@@ -3,6 +3,9 @@ package handler;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import handler.in.OnKeyPress;
+import handler.in.OnKeyRelease;
+
 public class KeyEventHandler
 {
 	private ArrayList<OnKeyPress> onKeyPressList = new ArrayList<OnKeyPress>();

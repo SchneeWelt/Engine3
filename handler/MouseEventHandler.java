@@ -3,6 +3,11 @@ package handler;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import handler.in.OnMouseDrag;
+import handler.in.OnMouseMove;
+import handler.in.OnMousePress;
+import handler.in.OnMouseRelease;
+
 public class MouseEventHandler
 {
 	private ArrayList<OnMouseMove> onMouseMoveList = new ArrayList<OnMouseMove>();
