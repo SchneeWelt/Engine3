@@ -3,11 +3,10 @@ package tools;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
-import globalValues.GlobalValue;
-import handler.OnKeyPress;
-import handler.OnKeyRelease;
-import main.Draw;
-import tools.keySet.KeySet;
+import globalValues.Globals;
+import handler.in.OnKeyPress;
+import handler.in.OnKeyRelease;
+import in.Draw;
 import tools.rect.Rect;
 
 /**
@@ -23,21 +22,31 @@ import tools.rect.Rect;
 
 public class Spectator implements OnKeyPress, OnKeyRelease, Draw
 {
-	private final int SPEED = 8;
-
+	private int inc, dec;
 	private double spectatorZoom = 1;
+	private int left, right, up, down;
+
+	private final int SPEED = 8;
 	private final double ZOOM_INCREMENT = 0.2;
 
 	private Camera camera = new Camera();
 	private Rect spectatorLocation = new Rect(0, 0);
 	private Rect spectatorAccelaration = new Rect(0, 0);
-	private KeySet zoom = new KeySet(KeyEvent.VK_MINUS, KeyEvent.VK_PLUS, 0, 0);
-	private KeySet movement = new KeySet(KeyEvent.VK_DOWN, KeyEvent.VK_UP, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT);
 
 	public Spectator()
 	{
-		GlobalValue.getKeyEventHandler().addOnKeyPress(this);
-		GlobalValue.getKeyEventHandler().addOnKeyRelease(this);
+		inc = KeyEvent.VK_PLUS;
+		dec = KeyEvent.VK_MINUS;
+		
+		up = KeyEvent.VK_UP;
+		left = KeyEvent.VK_LEFT;
+		down = KeyEvent.VK_DOWN;
+		right = KeyEvent.VK_RIGHT;
+		
+		
+
+		Globals.getKeyEventHandler().addOnKeyPress(this);
+		Globals.getKeyEventHandler().addOnKeyRelease(this);
 	}
 
 	@Override
@@ -59,18 +68,18 @@ public class Spectator implements OnKeyPress, OnKeyRelease, Draw
 		int key = e.getKeyCode();
 
 		/* movement */
-		if (key == movement.moveDown())
+		if (key == down)
 		{
-			spectatorAccelaration.setY(getZero());
-		} else if (key == movement.moveUp())
+			spectatorAccelaration.setY(0);
+		} else if (key == up)
 		{
-			spectatorAccelaration.setY(getZero());
-		} else if (key == movement.moveRight())
+			spectatorAccelaration.setY(0);
+		} else if (key == right)
 		{
-			spectatorAccelaration.setX(getZero());
-		} else if (key == movement.moveLeft())
+			spectatorAccelaration.setX(0);
+		} else if (key == left)
 		{
-			spectatorAccelaration.setX(getZero());
+			spectatorAccelaration.setX(0);
 		}
 	}
 
@@ -80,25 +89,25 @@ public class Spectator implements OnKeyPress, OnKeyRelease, Draw
 		int key = e.getKeyCode();
 
 		/* movement */
-		if (key == movement.moveDown())
+		if (key == down)
 		{
 			spectatorAccelaration.setY(-SPEED);
-		} else if (key == movement.moveUp())
+		} else if (key == up)
 		{
 			spectatorAccelaration.setY(+SPEED);
-		} else if (key == movement.moveRight())
+		} else if (key == right)
 		{
 			spectatorAccelaration.setX(-SPEED);
-		} else if (key == movement.moveLeft())
+		} else if (key == left)
 		{
 			spectatorAccelaration.setX(+SPEED);
 		}
 
 		/* zoom */
-		if (key == zoom.moveUp())
+		if (key == inc)
 		{
 			spectatorZoom -= ZOOM_INCREMENT;
-		} else if (key == zoom.moveDown())
+		} else if (key == dec)
 		{
 			spectatorZoom += ZOOM_INCREMENT;
 		}
@@ -107,10 +116,5 @@ public class Spectator implements OnKeyPress, OnKeyRelease, Draw
 	public final Camera getCamera()
 	{
 		return camera;
-	}
-
-	private final int getZero()
-	{
-		return 0;
 	}
 }

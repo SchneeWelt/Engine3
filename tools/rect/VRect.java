@@ -4,7 +4,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import main.Draw;
+import in.Draw;
 
 /**
  * The VRect also VisibleRect can display itself on a canvas. It can still hold
@@ -53,7 +53,7 @@ public class VRect extends Rect implements Draw
 		setStrokeWidth(vRect.getStrokeWidth());
 		setDisplayState(vRect.getDisplayState());
 	}
-	
+
 	public VRect(int x, int y)
 	{
 		super(x, y);
@@ -69,7 +69,7 @@ public class VRect extends Rect implements Draw
 		super(x, y, w, h);
 		setColor(color);
 	}
-	
+
 	public VRect(int x, int y, int w, int h, int DISPLAY_STATE)
 	{
 		super(x, y, w, h);
@@ -102,17 +102,25 @@ public class VRect extends Rect implements Draw
 	{
 		graphics.setColor(color);
 
-		switch (getDisplayState())
+//		switch (getDisplayState())
+//		{
+//			case DISPLAY_STATE_FILL ->
+//			{
+//				graphics.fillRect(x, y, w, h);
+//			}
+//			case DISPLAY_STATE_OUTLINE ->
+//			{
+//				graphics.setStroke(new BasicStroke(strokeWidth));
+//				graphics.drawRect(x, y, w, h);
+//			}
+//		}
+
+		if (displayState == DISPLAY_STATE_FILL)
+			graphics.fillRect(x, y, w, h);
+		else if (displayState == DISPLAY_STATE_OUTLINE)
 		{
-			case DISPLAY_STATE_FILL ->
-			{
-				graphics.fillRect(x, y, w, h);
-			}
-			case DISPLAY_STATE_OUTLINE ->
-			{
-				graphics.setStroke(new BasicStroke(strokeWidth));
-				graphics.drawRect(x, y, w, h);
-			}
+			graphics.setStroke(new BasicStroke(strokeWidth));
+			graphics.drawRect(x, y, w, h);
 		}
 	}
 

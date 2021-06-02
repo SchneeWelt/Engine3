@@ -3,7 +3,7 @@ package tools.rect;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import main.Draw;
+import in.Draw;
 
 /**
  * The VCRect or VisibleCollisionRect can visually show its location on screen.

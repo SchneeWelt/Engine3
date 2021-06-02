@@ -3,7 +3,7 @@ package tools.circle;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import main.Draw;
+import in.Draw;
 import tools.circle.ccircle.CCircle;
 import tools.circle.ccircle.OnCollision;
 

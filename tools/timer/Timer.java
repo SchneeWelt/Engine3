@@ -2,7 +2,7 @@ package tools.timer;
 
 import java.awt.Graphics2D;
 
-import main.Draw;
+import in.Draw;
 
 /**
  * The Timer class is a timer which trigger the onTimerTrigger() event when the

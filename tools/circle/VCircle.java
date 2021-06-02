@@ -3,7 +3,7 @@ package tools.circle;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import main.Draw;
+import in.Draw;
 
 /**
  * The VCircle or VisibleCircle is as its super class also a container for
@@ -60,11 +60,16 @@ public class VCircle extends Circle implements Draw
 	{
 		graphics.setColor(color);
 		
-		switch(displayState)
-		{
-			case DISPLAY_STATE_FILL -> fillCircle(graphics);
-			case DISPLAY_STATE_OUTLINE -> outlineCircle(graphics);
-		}
+//		switch(displayState)
+//		{
+//			case DISPLAY_STATE_FILL -> fillCircle(graphics);
+//			case DISPLAY_STATE_OUTLINE -> outlineCircle(graphics);
+//		}
+		
+		if (displayState == DISPLAY_STATE_FILL)
+			fillCircle(graphics);
+		else if (displayState == DISPLAY_STATE_OUTLINE)
+			outlineCircle(graphics);
 	}
 
 	/*

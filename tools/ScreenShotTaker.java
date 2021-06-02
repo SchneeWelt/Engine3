@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import gui.IPanel;
+import gui.IFrame;
 
 /**
  * This class takes a screenshot on what is currently painted on screen. The
@@ -18,8 +18,10 @@ import gui.IPanel;
 public class ScreenShotTaker
 {
 	private int counter = 1;
+
+	private IFrame iFrame;
 	
-	public ScreenShotTaker()
+	public ScreenShotTaker(IFrame iFrame)
 	{
 		tryToCreateResFolder();
 	}
@@ -27,7 +29,7 @@ public class ScreenShotTaker
 	public final void takeScreenShot()
 	{
 		File outputFile = new File("res/ScreenShot" + counter + ".png");
-		BufferedImage screenShot = IPanel.getIImage();
+		BufferedImage screenShot = iFrame.getCanvas();
 		
 		try
 		{

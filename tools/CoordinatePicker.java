@@ -5,8 +5,8 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.SwingUtilities;
 
-import globalValues.GlobalValue;
-import handler.OnMousePress;
+import globalValues.Globals;
+import handler.in.OnMousePress;
 import tools.printer.DebugPrinter;
 
 /**
@@ -24,7 +24,7 @@ public class CoordinatePicker implements OnMousePress
 
 	public CoordinatePicker()
 	{
-		GlobalValue.getMouseEventHandler().addOnMousePress(this);
+		Globals.getMouseEventHandler().addOnMousePress(this);
 	}
 
 	@Override
