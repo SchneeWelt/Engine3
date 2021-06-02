@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
@@ -9,33 +10,33 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import globalValues.GlobalValue;
+import globalValues.Globals;
+import tools.rect.Rect;
 
 public class IPanel extends JPanel
 {
-	/* this is the image on which the whole program draws on */
-	private static BufferedImage iImage = new BufferedImage(GlobalValue.getScreenDimension().width,
-			GlobalValue.getScreenDimension().height, BufferedImage.TYPE_INT_RGB);
+	/* Auf diesem BufferedImage objekt malt das IFrame */
+	private BufferedImage canvas = createCanvas(); // static...
 
 	public IPanel()
 	{
-		setSize(GlobalValue.getScreenDimension());
+		setupSize();
 
 		addMouseMotionListener(new MouseMotionListener()
 		{
 
 			@Override
-			public void mouseMoved(MouseEvent e)
+			public void mouseMoved(MouseEvent mouseEvent)
 			{
-				GlobalValue.setMouseLocation(e.getPoint());
-				GlobalValue.getMouseEventHandler().triggerOnMouseMove(e);
+				updateMouseLocation(mouseEvent);
+				Globals.getMouseEventHandler().triggerOnMouseMove(mouseEvent);
 			}
 
 			@Override
-			public void mouseDragged(MouseEvent e)
+			public void mouseDragged(MouseEvent mouseEvent)
 			{
-				GlobalValue.setMouseLocation(e.getPoint());
-				GlobalValue.getMouseEventHandler().triggerOnMouseDrag(e);
+				updateMouseLocation(mouseEvent);
+				Globals.getMouseEventHandler().triggerOnMouseDrag(mouseEvent);
 			}
 		});
 
@@ -44,15 +45,15 @@ public class IPanel extends JPanel
 			@Override
 			public void mouseReleased(MouseEvent e)
 			{
-				GlobalValue.setMousePressed(false);
-				GlobalValue.getMouseEventHandler().triggerOnMouseRelease(e);
+				Globals.setMousePressed(false);
+				Globals.getMouseEventHandler().triggerOnMouseRelease(e);
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e)
 			{
-				GlobalValue.setMousePressed(true);
-				GlobalValue.getMouseEventHandler().triggerOnMousePress(e);
+				Globals.setMousePressed(true);
+				Globals.getMouseEventHandler().triggerOnMousePress(e);
 			}
 
 			@Override
@@ -72,20 +73,52 @@ public class IPanel extends JPanel
 		});
 	}
 	
-	public static final BufferedImage getIImage()
-	{
-		return iImage;
-	}
-
-	public final Graphics2D getIPanelGraphics()
-	{
-		return (Graphics2D) iImage.getGraphics();
-	}
 
 	@Override
 	protected void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		g.drawImage(iImage, 0, 0, null);
+		g.drawImage(canvas, 0, 0, null);
+	}
+	
+	private final void updateMouseLocation(MouseEvent mouseEvent)
+	{
+		int x = (int) mouseEvent.getPoint().getX();
+		int y = (int) mouseEvent.getPoint().getY();
+		Globals.setMouseLocation(new Rect(x, y));
+	}
+
+	private final BufferedImage createCanvas()
+	{
+		int type = BufferedImage.TYPE_INT_ARGB;
+		int w = Globals.getScreenDimension().getW();
+		int h = Globals.getScreenDimension().getH();
+
+		return new BufferedImage(w, h, type);
+	}
+	
+	private final void setupSize()
+	{
+		int w = Globals.getScreenDimension().getW();
+		int h = Globals.getScreenDimension().getH();
+		
+		setSize(new Dimension(w, h));
+	}
+
+	public final BufferedImage getCanvas() // static ...
+	{
+		return canvas;
+	}
+
+	/**
+	 * Gibt das Graphics objekt des Canvas objektes zurück. Diese Methode sollte mit
+	 * jedem Tick aufgerufen werden, um das neuste Graphics2D objekt zu bekommen.
+	 * 
+	 * @return
+	 */
+
+	public final Graphics2D getCanvasGraphics()
+	{
+		return (Graphics2D) canvas.getGraphics();
 	}
 }

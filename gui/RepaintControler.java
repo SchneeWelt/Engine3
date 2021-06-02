@@ -1,7 +1,6 @@
 package gui;
 
-import java.awt.Dimension;
-import java.awt.Point;
+import tools.rect.Rect;
 
 /**
  * I use this class quiet rarly however, it can be used to determine where to
@@ -15,22 +14,22 @@ import java.awt.Point;
 
 public class RepaintControler
 {
-	private IFrame iFrame = null;
-	private static RepaintControler repaintControler = null;
+	private IFrame iFrame;
+	private static RepaintControler repaintControler;
 
 	public RepaintControler(IFrame iFrame)
 	{
 		this.iFrame = iFrame;
 	}
 
-	public final void repaintIPanel(Point startLocation, Dimension repaintDimension)
+	public final void repaintIPanel(Rect area)
 	{
-		iFrame.repaintIPanel(startLocation, repaintDimension);
+		iFrame.repaintCanvas(area);
 	}
 
-	public final void repaintIPanel()
+	public final void repaintCanvas()
 	{
-		iFrame.repaintIPanel();
+		iFrame.repaintCanvas();
 	}
 
 	public static final RepaintControler getRepaintControler()

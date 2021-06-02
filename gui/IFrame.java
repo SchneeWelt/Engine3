@@ -2,14 +2,15 @@ package gui;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
-import globalValues.GlobalValue;
+import globalValues.Globals;
+import tools.rect.Rect;
 
 public class IFrame extends JFrame
 {
@@ -17,59 +18,44 @@ public class IFrame extends JFrame
 
 	public IFrame()
 	{
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		setResizable(false);
-
-		setContentPane(iPanel);
-
-		setSize();
-
-		pack();
-
-		addKeyListener(new KeyListener()
-		{
-
-			@Override
-			public void keyTyped(KeyEvent e)
-			{
-			}
-
-			@Override
-			public void keyReleased(KeyEvent e)
-			{
-				GlobalValue.getKeyEventHandler().triggerOnKeyRelease(e);
-			}
-
-			@Override
-			public void keyPressed(KeyEvent e)
-			{
-				GlobalValue.getKeyEventHandler().triggerOnKeyPress(e);
-			}
-		});
-
-		setLocationRelativeTo(null);
-
-		setVisible(true);
+		setup();
 	}
 	
 	public IFrame(String title)
 	{
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		setResizable(false);
-		
 		setTitle(title);
+		setup();
+	}
+	
+	public final Graphics2D getCanvasGraphics()
+	{
+		return iPanel.getCanvasGraphics();
+	}
+	
+	public final BufferedImage getCanvas()
+	{
+		return iPanel.getCanvas();
+	}
 
+	public final void repaintCanvas(Rect area)
+	{
+		iPanel.repaint(new Rectangle(area.getX(), area.getH(), area.getW(), area.getH()));
+	}
+
+	public final void repaintCanvas()
+	{
+		iPanel.repaint();
+	}
+	
+	private final void setup()
+	{
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
 		setContentPane(iPanel);
-
 		setSize();
-
 		pack();
-
 		addKeyListener(new KeyListener()
 		{
-
 			@Override
 			public void keyTyped(KeyEvent e)
 			{
@@ -78,13 +64,13 @@ public class IFrame extends JFrame
 			@Override
 			public void keyReleased(KeyEvent e)
 			{
-				GlobalValue.getKeyEventHandler().triggerOnKeyRelease(e);
+				Globals.getKeyEventHandler().triggerOnKeyRelease(e);
 			}
 
 			@Override
 			public void keyPressed(KeyEvent e)
 			{
-				GlobalValue.getKeyEventHandler().triggerOnKeyPress(e);
+				Globals.getKeyEventHandler().triggerOnKeyPress(e);
 			}
 		});
 
@@ -93,23 +79,10 @@ public class IFrame extends JFrame
 		setVisible(true);
 	}
 
-	public final Graphics2D getIPanelGraphics()
-	{
-		return (Graphics2D) iPanel.getIPanelGraphics();
-	}
-
-	public final void repaintIPanel(Point startLocation, Dimension repaintDimension)
-	{
-		iPanel.repaint(new Rectangle(startLocation, repaintDimension));
-	}
-
-	public final void repaintIPanel()
-	{
-		iPanel.repaint();
-	}
-
 	private final void setSize()
 	{
-		getContentPane().setPreferredSize(GlobalValue.getScreenDimension());
+		int w = Globals.getScreenDimension().getW();
+		int h = Globals.getScreenDimension().getH();
+		getContentPane().setPreferredSize(new Dimension(w, h));
 	}
 }
