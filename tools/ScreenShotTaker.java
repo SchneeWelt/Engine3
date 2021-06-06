@@ -23,12 +23,13 @@ public class ScreenShotTaker
 	
 	public ScreenShotTaker(IFrame iFrame)
 	{
+		this.iFrame = iFrame;
 		tryToCreateResFolder();
 	}
 
 	public final void takeScreenShot()
 	{
-		File outputFile = new File("res/ScreenShot" + counter + ".png");
+		File outputFile = new File("data/ScreenShot" + counter + ".png");
 		BufferedImage screenShot = iFrame.getCanvas();
 		
 		try
