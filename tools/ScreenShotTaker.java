@@ -45,7 +45,7 @@ public class ScreenShotTaker
 
 	private final void tryToCreateResFolder()
 	{
-		File resFolder = new File("res");
+		File resFolder = new File("data");
 
 		if (!resFolder.exists())
 		{
