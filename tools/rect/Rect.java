@@ -62,6 +62,16 @@ public class Rect
 		setX(getX() + incrementX);
 	}
 	
+	public final void decrementX(int decrementX)
+	{
+		setX(getX() - decrementX);
+	}
+	
+	public final void decrementY(int decrementY)
+	{
+		setY(getY() - decrementY);
+	}
+	
 	/**
 	 * The IncrementY method will add the incrementY value to the current y value of
 	 * this rect.
@@ -86,6 +96,11 @@ public class Rect
 		setW(getW() + incrementW);
 	}
 	
+	public final void decrementW(int decrementW)
+	{
+		setW(getW() - decrementW);
+	}
+	
 	/**
 	 * The IncrementH method will add the incrementH value to the current h value of
 	 * this rect.
@@ -96,6 +111,11 @@ public class Rect
 	public final void incrementH(int incrementH)
 	{
 		setH(getH() + incrementH);
+	}
+	
+	public final void decrementH(int decrementH)
+	{
+		setH(getH() - decrementH);
 	}
 
 	public int getX()
