@@ -1,4 +1,4 @@
-package objects.hud.hudElement.button;
+package tools.hud.hudElement.button;
 
 /**
  * Speichert informationen über einen BUtton, die bei einem event übergeben

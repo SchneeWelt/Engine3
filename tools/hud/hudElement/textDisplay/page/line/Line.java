@@ -1,8 +1,8 @@
-package objects.hud.hudElement.textDisplay.page.line;
+package tools.hud.hudElement.textDisplay.page.line;
 
 import java.util.ArrayList;
 
-import objects.hud.hudElement.textDisplay.page.letter.Letter;
+import tools.hud.hudElement.textDisplay.page.letter.Letter;
 
 /**
  * Speichert n Letter objekte in einer ArrayListe. Diese ArrayListe stellt somit

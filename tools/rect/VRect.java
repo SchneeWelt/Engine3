@@ -58,6 +58,12 @@ public class VRect extends Rect implements Draw
 	{
 		super(x, y);
 	}
+	
+	public VRect(Rect location, Color color)
+	{
+		super(location);
+		setColor(color);
+	}
 
 	public VRect(int x, int y, int w, int h)
 	{

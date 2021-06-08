@@ -1,11 +1,11 @@
-package objects.hud.hudElement.textDisplay;
+package tools.hud.hudElement.textDisplay;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import globalValues.GlobalValue;
-import handler.OnKeyPress;
-import handler.OnKeyRelease;
+import globalValues.Globals;
+import handler.in.OnKeyPress;
+import handler.in.OnKeyRelease;
 
 /**
  * Sorgt dafür, dass immer nur auf einem TextDisplay zur Zeit geschrieben werden
@@ -21,8 +21,8 @@ public class TextDisplayCoordinator implements OnKeyPress, OnKeyRelease
 
 	public TextDisplayCoordinator()
 	{
-		GlobalValue.getKeyEventHandler().addOnKeyPress(this);
-		GlobalValue.getKeyEventHandler().addOnKeyRelease(this);
+		Globals.getKeyEventHandler().addOnKeyPress(this);
+		Globals.getKeyEventHandler().addOnKeyRelease(this);
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package objects.hud.hudElement;
+package tools.hud.hudElement;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -8,14 +8,14 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import globalValues.GlobalValue;
+import globalValues.Globals;
 import handler.MouseEventHandler;
-import handler.OnKeyPress;
-import handler.OnKeyRelease;
-import handler.OnMousePress;
-import handler.OnMouseRelease;
-import main.Draw;
-import objects.hud.HUD;
+import handler.in.OnKeyPress;
+import handler.in.OnKeyRelease;
+import handler.in.OnMousePress;
+import handler.in.OnMouseRelease;
+import in.Draw;
+import tools.hud.HUD;
 import tools.rect.Rect;
 
 /**
@@ -26,7 +26,7 @@ public abstract class HUDElement implements Draw, OnKeyRelease, OnKeyPress, OnMo
 {
 	protected final int STROKE_SIZE = 4;
 
-	protected HUD hud = null;
+	protected HUD hud;
 	protected Color outlineColor = Color.blue;
 	protected Rect location = new Rect(0, 0, 0, 0);
 	protected BasicStroke outlineStroke = new BasicStroke(STROKE_SIZE);
@@ -36,7 +36,7 @@ public abstract class HUDElement implements Draw, OnKeyRelease, OnKeyPress, OnMo
 		this.hud = hud;
 		this.location = location;
 
-		MouseEventHandler m = GlobalValue.getMouseEventHandler();
+		MouseEventHandler m = Globals.getMouseEventHandler();
 		m.addOnMouseRelease(this);
 		m.addOnMousePress(this);
 	}
@@ -85,8 +85,8 @@ public abstract class HUDElement implements Draw, OnKeyRelease, OnKeyPress, OnMo
 
 	protected final boolean isElementSelected()
 	{
-		Rect mouseLocation = new Rect((int) GlobalValue.getMouseLocation().getX(),
-				(int) GlobalValue.getMouseLocation().getY());
+		Rect mouseLocation = new Rect((int) Globals.getMouseLocation().getX(),
+				(int) Globals.getMouseLocation().getY());
 
 		return new Rectangle(location.getX(), location.getY(), location.getW(), location.getH())
 				.contains(new Point(mouseLocation.getX(), mouseLocation.getY()));

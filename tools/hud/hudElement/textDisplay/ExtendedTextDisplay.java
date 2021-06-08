@@ -1,10 +1,9 @@
-package objects.hud.hudElement.textDisplay;
+package tools.hud.hudElement.textDisplay;
 
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
-import objects.hud.HUD;
-import objects.hud.scrollBar.Scrollbar;
+import tools.hud.HUD;
 import tools.rect.Rect;
 
 /**
@@ -18,14 +17,11 @@ import tools.rect.Rect;
 
 public class ExtendedTextDisplay extends TextDisplay 
 {
-	private Scrollbar scrollbar;
 	private CharacterHighlighter characterHighlighter;
 
 	public ExtendedTextDisplay(boolean keepSize, Rect location, HUD hud)
 	{
 		super(keepSize, location, hud);
-
-		scrollbar = buildScrollbar(location, hud);
 
 		characterHighlighter = new CharacterHighlighter(this, cursor);
 		characterHighlighter.draw(null);
@@ -35,7 +31,6 @@ public class ExtendedTextDisplay extends TextDisplay
 	public void draw(Graphics2D graphics)
 	{
 		super.draw(graphics);
-		scrollbar.draw(graphics);
 		characterHighlighter.draw(graphics);
 	}
 
@@ -115,18 +110,6 @@ public class ExtendedTextDisplay extends TextDisplay
 	private final boolean compare(int keyCode, int comparator)
 	{
 		return keyCode != comparator;
-	}
-
-	private final Scrollbar buildScrollbar(Rect location, HUD hud)
-	{
-		Rect clone = new Rect(location);
-		clone.incrementX(clone.getW());
-		return new Scrollbar(clone, hud);
-	}
-
-	public final int getActualWidth()
-	{
-		return location.getW() + scrollbar.getWidth();
 	}
 
 	/**

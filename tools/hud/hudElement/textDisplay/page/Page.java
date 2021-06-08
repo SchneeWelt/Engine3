@@ -1,8 +1,8 @@
-package objects.hud.hudElement.textDisplay.page;
+package tools.hud.hudElement.textDisplay.page;
 
 import java.util.ArrayList;
 
-import objects.hud.hudElement.textDisplay.page.line.Line;
+import tools.hud.hudElement.textDisplay.page.line.Line;
 
 /**
  * Ein Page objekt ist für die Speicherung des Inhaltes einer Seit eines

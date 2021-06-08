@@ -1,10 +1,10 @@
-package objects.hud.hudElement.textDisplay.page;
+package tools.hud.hudElement.textDisplay.page;
 
-import objects.hud.HUD;
-import objects.hud.hudElement.textDisplay.Cursor;
-import objects.hud.hudElement.textDisplay.page.letter.ExtendetLetter;
-import objects.hud.hudElement.textDisplay.page.letter.Letter;
-import objects.hud.hudElement.textDisplay.page.line.Line;
+import tools.hud.HUD;
+import tools.hud.hudElement.textDisplay.Cursor;
+import tools.hud.hudElement.textDisplay.page.letter.ExtendetLetter;
+import tools.hud.hudElement.textDisplay.page.letter.Letter;
+import tools.hud.hudElement.textDisplay.page.line.Line;
 import tools.rect.Rect;
 
 /**

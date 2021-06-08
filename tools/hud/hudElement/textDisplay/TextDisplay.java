@@ -1,18 +1,19 @@
-package objects.hud.hudElement.textDisplay;
+package tools.hud.hudElement.textDisplay;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
-import objects.hud.HUD;
-import objects.hud.hudElement.HUDElement;
-import objects.hud.hudElement.button.Button;
-import objects.hud.hudElement.button.ButtonEvent;
-import objects.hud.hudElement.button.OnButtonClick;
-import objects.hud.hudElement.textDisplay.page.Page;
-import objects.hud.hudElement.textDisplay.page.PageFactory;
-import objects.hud.hudElement.textDisplay.page.letter.Letter;
-import objects.hud.hudElement.textDisplay.page.line.Line;
-import tools.Background;
+import tools.background.BetterBackground;
+import tools.hud.HUD;
+import tools.hud.hudElement.HUDElement;
+import tools.hud.hudElement.button.Button;
+import tools.hud.hudElement.button.ButtonEvent;
+import tools.hud.hudElement.button.OnButtonClick;
+import tools.hud.hudElement.textDisplay.page.Page;
+import tools.hud.hudElement.textDisplay.page.PageFactory;
+import tools.hud.hudElement.textDisplay.page.letter.Letter;
+import tools.hud.hudElement.textDisplay.page.line.Line;
 import tools.rect.Rect;
 
 /**
@@ -36,7 +37,7 @@ public class TextDisplay extends HUDElement implements OnButtonClick
 	private Page page;
 	protected Cursor cursor;
 	private Button selector;
-	private Background background;
+	private BetterBackground background;
 	private TextDisplayCoordinator textDisplayCoordinator;
 
 	/**
@@ -409,7 +410,7 @@ public class TextDisplay extends HUDElement implements OnButtonClick
 
 	private final void createBackground()
 	{
-		background = new Background(location);
+		background = new BetterBackground(location, Color.black);
 	}
 
 	/**

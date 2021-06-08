@@ -1,4 +1,4 @@
-package objects.hud.hudElement.textDisplay;
+package tools.hud.hudElement.textDisplay;
 
 public class Cursor
 {

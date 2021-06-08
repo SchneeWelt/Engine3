@@ -1,12 +1,12 @@
-package objects.hud.hudElement.textDisplay.page.letter;
+package tools.hud.hudElement.textDisplay.page.letter;
 
 import java.awt.Graphics2D;
 
-import objects.hud.HUD;
-import objects.hud.hudElement.button.Button;
-import objects.hud.hudElement.button.ButtonEvent;
-import objects.hud.hudElement.button.OnButtonClick;
-import objects.hud.hudElement.textDisplay.Cursor;
+import tools.hud.HUD;
+import tools.hud.hudElement.button.Button;
+import tools.hud.hudElement.button.ButtonEvent;
+import tools.hud.hudElement.button.OnButtonClick;
+import tools.hud.hudElement.textDisplay.Cursor;
 import tools.rect.Rect;
 
 public class ExtendetLetter extends Letter implements OnButtonClick

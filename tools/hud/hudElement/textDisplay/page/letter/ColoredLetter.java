@@ -1,10 +1,10 @@
-package objects.hud.hudElement.textDisplay.page.letter;
+package tools.hud.hudElement.textDisplay.page.letter;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import objects.hud.HUD;
-import tools.Background;
+import tools.background.BetterBackground;
+import tools.hud.HUD;
 import tools.rect.Rect;
 
 /**
@@ -14,12 +14,12 @@ import tools.rect.Rect;
 
 public class ColoredLetter extends Letter
 {
-	private Background background;
+	private BetterBackground background;
 
 	public ColoredLetter(Color backgroundColor, Character c, HUD hud, Rect location)
 	{
 		super(c, hud, location);
-		background = new Background(location, backgroundColor);
+		background = new BetterBackground(location, backgroundColor);
 	}
 
 	@Override

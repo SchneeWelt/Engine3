@@ -1,12 +1,12 @@
-package objects.hud.hudElement.textDisplay.page.letter;
+package tools.hud.hudElement.textDisplay.page.letter;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 
-import objects.hud.HUD;
-import objects.hud.hudElement.HUDElement;
+import tools.hud.HUD;
+import tools.hud.hudElement.HUDElement;
 import tools.rect.Rect;
 
 /**

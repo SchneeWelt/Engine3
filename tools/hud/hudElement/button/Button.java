@@ -1,4 +1,4 @@
-package objects.hud.hudElement.button;
+package tools.hud.hudElement.button;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -6,9 +6,9 @@ import java.awt.Graphics2D;
 import java.awt.Stroke;
 import java.awt.event.MouseEvent;
 
-import objects.hud.HUD;
-import objects.hud.hudElement.HUDElement;
-import tools.Background;
+import tools.background.BetterBackground;
+import tools.hud.HUD;
+import tools.hud.hudElement.HUDElement;
 import tools.rect.Rect;
 
 /**
@@ -30,8 +30,8 @@ public class Button extends HUDElement
 	private boolean sendVisuelFeedback = false;
 	private boolean allowVisualFeedback = false;
 
-	private Background background;
 	private ButtonEvent buttonEvent;
+	private BetterBackground background;
 	private OnButtonClick onButtonClick;
 	private Color buttonShaderColor = new Color(0, 0, 0, 75);
 
@@ -91,7 +91,7 @@ public class Button extends HUDElement
 	{
 		this.onButtonClick = onButtonClick;
 		buttonEvent = new ButtonEvent("noName");
-		background = new Background(location, Color.cyan);
+		background = new BetterBackground(location, Color.cyan);
 	}
 
 	private final void displayBackground(Graphics2D graphics)

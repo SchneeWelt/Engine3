@@ -1,9 +1,9 @@
-package objects.hud.hudElement.button;
+package tools.hud.hudElement.button;
 
 import java.awt.Graphics2D;
 
-import objects.hud.HUD;
-import objects.hud.hudElement.textDisplay.TextDisplay;
+import tools.hud.HUD;
+import tools.hud.hudElement.textDisplay.TextDisplay;
 import tools.rect.Rect;
 
 public class LabeldButton extends Button

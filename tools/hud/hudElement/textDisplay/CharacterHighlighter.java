@@ -1,8 +1,8 @@
-package objects.hud.hudElement.textDisplay;
+package tools.hud.hudElement.textDisplay;
 
 import java.awt.Graphics2D;
 
-import main.Draw;
+import in.Draw;
 import tools.rect.Rect;
 
 public class CharacterHighlighter implements Draw
