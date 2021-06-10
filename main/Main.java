@@ -51,7 +51,7 @@ public class Main implements Draw
 
 		try
 		{
-			Thread.sleep((int) Globals.getTickrate());
+			Thread.sleep((int) Globals.TICK_RATE);
 		} catch (InterruptedException e)
 		{
 			e.printStackTrace();
