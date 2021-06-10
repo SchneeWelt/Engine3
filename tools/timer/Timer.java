@@ -23,13 +23,19 @@ public class Timer implements Draw
 	private final int MIN = 0;
 	private final int INCREMENT_PER_TICK = 1;
 
-	private OnTimerTrigger target = null;
+	private TimerEvent timerEvent;
+	private OnTimerTrigger target;
 
+	public Timer(int max, OnTimerTrigger target, String timerId)
+	{
+		setup(max, target);
+		timerEvent = new TimerEvent(timerId);
+	}
+	
 	public Timer(int max, OnTimerTrigger target)
 	{
-		setMax(max);
-		resetCounter();
-		setTarget(target);
+		setup(max, target);
+		timerEvent = new TimerEvent("default");
 	}
 
 	@Override
@@ -40,8 +46,20 @@ public class Timer implements Draw
 		if (counter > max)
 		{
 			resetCounter();
-			target.onTimerTrigger();
+			target.onTimerTrigger(timerEvent);
 		}
+	}
+	
+	private final void setup(int max, OnTimerTrigger target)
+	{
+		setMax(max);
+		resetCounter();
+		setTarget(target);
+	}
+	
+	public final String getTimerId()
+	{
+		return timerEvent.getTimerId();
 	}
 
 	private final void resetCounter()
