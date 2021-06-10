@@ -81,8 +81,8 @@ public class IFrame extends JFrame
 
 	private final void setSize()
 	{
-		int w = Globals.getScreenDimension().getW();
-		int h = Globals.getScreenDimension().getH();
+		int w = Globals.SCREEN_DIMENSION.getW();
+		int h = Globals.SCREEN_DIMENSION.getH();
 		getContentPane().setPreferredSize(new Dimension(w, h));
 	}
 }

@@ -91,16 +91,16 @@ public class IPanel extends JPanel
 	private final BufferedImage createCanvas()
 	{
 		int type = BufferedImage.TYPE_INT_ARGB;
-		int w = Globals.getScreenDimension().getW();
-		int h = Globals.getScreenDimension().getH();
+		int w = Globals.SCREEN_DIMENSION.getW();
+		int h = Globals.SCREEN_DIMENSION.getH();
 
 		return new BufferedImage(w, h, type);
 	}
 	
 	private final void setupSize()
 	{
-		int w = Globals.getScreenDimension().getW();
-		int h = Globals.getScreenDimension().getH();
+		int w = Globals.SCREEN_DIMENSION.getW();
+		int h = Globals.SCREEN_DIMENSION.getH();
 		
 		setSize(new Dimension(w, h));
 	}
