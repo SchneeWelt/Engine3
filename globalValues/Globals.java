@@ -15,8 +15,9 @@ public class Globals
 	private static Rect mouseLocation = new Rect(0, 0);
 
 	/* global system data */
-	private static final double tickRate = 1000 / 30;
-	private static final Rect SCREEN_DIMENSION = new Rect(0, 0, 900, 600);
+	public static final int TICKS = 30;
+	public static final double TICK_RATE = 1000 / TICKS;
+	public static final Rect SCREEN_DIMENSION = new Rect(0, 0, 900, 600);
 
 	public static final boolean isMousePressed()
 	{
@@ -36,16 +37,6 @@ public class Globals
 	public static final Rect getMouseLocation()
 	{
 		return mouseLocation;
-	}
-
-	public static final double getTickrate()
-	{
-		return tickRate;
-	}
-
-	public static final Rect getScreenDimension()
-	{
-		return SCREEN_DIMENSION;
 	}
 
 	public static final void setMousePressed(boolean mousePressed)
