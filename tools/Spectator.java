@@ -37,13 +37,11 @@ public class Spectator implements OnKeyPress, OnKeyRelease, Draw
 	{
 		inc = KeyEvent.VK_PLUS;
 		dec = KeyEvent.VK_MINUS;
-		
+
 		up = KeyEvent.VK_UP;
 		left = KeyEvent.VK_LEFT;
 		down = KeyEvent.VK_DOWN;
 		right = KeyEvent.VK_RIGHT;
-		
-		
 
 		Globals.getKeyEventHandler().addOnKeyPress(this);
 		Globals.getKeyEventHandler().addOnKeyRelease(this);
@@ -58,8 +56,8 @@ public class Spectator implements OnKeyPress, OnKeyRelease, Draw
 
 		/* change camera location and zoom */
 		camera.setZoom(spectatorZoom);
-		camera.setOffsetX(spectatorLocation.getX());
-		camera.setOffsetY(spectatorLocation.getY());
+		camera.setOffsetX(Math.round(spectatorLocation.getX()));
+		camera.setOffsetY(Math.round(spectatorLocation.getY()));
 	}
 
 	@Override

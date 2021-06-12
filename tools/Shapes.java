@@ -4,13 +4,21 @@ import java.awt.Graphics2D;
 
 public class Shapes
 {
-	public static final void fillCirlce(int x, int y, int r, Graphics2D graphics)
+	public static final void fillCirlce(float x, float y, float r, Graphics2D graphics)
 	{
-		graphics.fillOval(x - r, y - r, r * 2, r * 2);
+		int xp = Math.round(x);
+		int yp = Math.round(y);
+		int rp = Math.round(r);
+
+		graphics.fillOval(xp - rp, yp - rp, rp * 2, rp * 2);
 	}
-	
-	public static final void drawCirlce(int x, int y, int r, Graphics2D graphics)
+
+	public static final void drawCirlce(float x, float y, float r, Graphics2D graphics)
 	{
-		graphics.drawOval(x - r, y - r, r * 2, r * 2);
+		int xp = Math.round(x);
+		int yp = Math.round(y);
+		int rp = Math.round(r);
+
+		graphics.drawOval(xp - rp, yp - rp, rp * 2, rp * 2);
 	}
 }
