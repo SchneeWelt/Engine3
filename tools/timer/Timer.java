@@ -45,7 +45,7 @@ public class Timer implements Draw
 
 		if (counter > max)
 		{
-			resetCounter();
+			resetTimer();
 			target.onTimerTrigger(timerEvent);
 		}
 	}
@@ -53,18 +53,23 @@ public class Timer implements Draw
 	private final void setup(int max, OnTimerTrigger target)
 	{
 		setMax(max);
-		resetCounter();
+		resetTimer();
 		setTarget(target);
+	}
+	
+	public final void resetTimer()
+	{
+		counter = MIN;
+	}
+	
+	public final int getCurrentCount()
+	{
+		return counter;
 	}
 	
 	public final String getTimerId()
 	{
 		return timerEvent.getTimerId();
-	}
-
-	private final void resetCounter()
-	{
-		counter = MIN;
 	}
 
 	private final void incrementCounter()
