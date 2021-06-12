@@ -43,6 +43,22 @@ public class Circle
 	{
 		setX(getX() + incrementX);
 	}
+	
+	public final void collapse()
+	{
+		collapseX();
+		collapseY();
+	}
+	
+	public final void collapseY()
+	{
+		setY(0);
+	}
+	
+	public final void collapseX()
+	{
+		setX(0);
+	}
 
 	/**
 	 * The IncrementY method will add the incrementY value to the current y value of
