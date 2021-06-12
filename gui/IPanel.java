@@ -15,6 +15,8 @@ import tools.rect.Rect;
 
 public class IPanel extends JPanel
 {
+	private static final long serialVersionUID = 1L;
+	
 	/* Auf diesem BufferedImage objekt malt das IFrame */
 	private BufferedImage canvas = createCanvas(); // static...
 
@@ -72,7 +74,6 @@ public class IPanel extends JPanel
 			}
 		});
 	}
-	
 
 	@Override
 	protected void paintComponent(Graphics g)
@@ -80,7 +81,7 @@ public class IPanel extends JPanel
 		super.paintComponent(g);
 		g.drawImage(canvas, 0, 0, null);
 	}
-	
+
 	private final void updateMouseLocation(MouseEvent mouseEvent)
 	{
 		int x = (int) mouseEvent.getPoint().getX();
@@ -91,17 +92,17 @@ public class IPanel extends JPanel
 	private final BufferedImage createCanvas()
 	{
 		int type = BufferedImage.TYPE_INT_ARGB;
-		int w = Globals.SCREEN_DIMENSION.getW();
-		int h = Globals.SCREEN_DIMENSION.getH();
+		int w = Globals.SCREEN_DIMENSION.getRoundW();
+		int h = Globals.SCREEN_DIMENSION.getRoundH();
 
 		return new BufferedImage(w, h, type);
 	}
-	
+
 	private final void setupSize()
 	{
-		int w = Globals.SCREEN_DIMENSION.getW();
-		int h = Globals.SCREEN_DIMENSION.getH();
-		
+		int w = Globals.SCREEN_DIMENSION.getRoundW();
+		int h = Globals.SCREEN_DIMENSION.getRoundH();
+
 		setSize(new Dimension(w, h));
 	}
 

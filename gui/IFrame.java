@@ -14,24 +14,26 @@ import tools.rect.Rect;
 
 public class IFrame extends JFrame
 {
+	private static final long serialVersionUID = 1L;
+
 	private IPanel iPanel = new IPanel();
 
 	public IFrame()
 	{
 		setup();
 	}
-	
+
 	public IFrame(String title)
 	{
 		setTitle(title);
 		setup();
 	}
-	
+
 	public final Graphics2D getCanvasGraphics()
 	{
 		return iPanel.getCanvasGraphics();
 	}
-	
+
 	public final BufferedImage getCanvas()
 	{
 		return iPanel.getCanvas();
@@ -39,14 +41,14 @@ public class IFrame extends JFrame
 
 	public final void repaintCanvas(Rect area)
 	{
-		iPanel.repaint(new Rectangle(area.getX(), area.getH(), area.getW(), area.getH()));
+		iPanel.repaint(new Rectangle(area.getRoundX(), area.getRoundH(), area.getRoundW(), area.getRoundH()));
 	}
 
 	public final void repaintCanvas()
 	{
 		iPanel.repaint();
 	}
-	
+
 	private final void setup()
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -81,8 +83,8 @@ public class IFrame extends JFrame
 
 	private final void setSize()
 	{
-		int w = Globals.SCREEN_DIMENSION.getW();
-		int h = Globals.SCREEN_DIMENSION.getH();
+		int w = Globals.SCREEN_DIMENSION.getRoundW();
+		int h = Globals.SCREEN_DIMENSION.getRoundH();
 		getContentPane().setPreferredSize(new Dimension(w, h));
 	}
 }
