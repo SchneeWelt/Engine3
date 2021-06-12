@@ -56,8 +56,9 @@ public class Spectator implements OnKeyPress, OnKeyRelease, Draw
 
 		/* change camera location and zoom */
 		camera.setZoom(spectatorZoom);
-		camera.setOffsetX(Math.round(spectatorLocation.getX()));
-		camera.setOffsetY(Math.round(spectatorLocation.getY()));
+		
+		Rect offset = new Rect(Math.round(spectatorLocation.getX()), Math.round(spectatorLocation.getY())); 
+		camera.setOffset(offset);
 	}
 
 	@Override

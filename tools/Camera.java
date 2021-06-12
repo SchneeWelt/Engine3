@@ -2,6 +2,8 @@ package tools;
 
 import java.awt.Graphics2D;
 
+import tools.rect.Rect;
+
 /**
  * The Camera class simulates a simple camera to use. In the moment it is
  * possible to move the camera up, down, left and right as well as zoom out and
@@ -22,37 +24,55 @@ import java.awt.Graphics2D;
 
 public class Camera
 {
-	private int offsetX, offsetY;
 	private double zoom = 1;
+
+	private Rect offset;
 
 	public Camera()
 	{
+		offset = new Rect(0, 0);
 	}
 
 	public final void camera(Graphics2D graphics)
 	{
 		graphics.scale(zoom, zoom);
-		graphics.translate(offsetX, offsetY);
+		graphics.translate(offset.getRoundX(), offset.getRoundY());
 	}
 
-	public final int getOffsetX()
+	/**
+	 * Bewegt die Kamera auf eine neue Position, in dem die input parameter auf die
+	 * vorhandene Position addiert werden.
+	 * 
+	 * @param shiftX
+	 * @param shiftY
+	 */
+
+	public final void move(int shiftX, int shiftY)
 	{
-		return offsetX;
+		offset.incrementX(shiftX);
+		offset.incrementY(shiftY);
+		
+//		akk: camera, timer, rect, circle, spectator
 	}
 
-	public final int getOffsetY()
+	/**
+	 * Fokusiert die Camera auf Punkt 0, 0
+	 */
+
+	public final void collapse()
 	{
-		return offsetY;
+		offset.setX(0);
+		offset.setY(0);
 	}
 
-	public final void setOffsetX(int offsetX)
+	public final Rect getOffset()
 	{
-		this.offsetX = offsetX;
+		return offset;
 	}
 
-	public final void setOffsetY(int offsetY)
+	public final void setOffset(Rect offset)
 	{
-		this.offsetY = offsetY;
+		this.offset = offset;
 	}
 
 	public final double getZoom()
