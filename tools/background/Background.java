@@ -22,13 +22,13 @@ public class Background implements Draw
 	{
 		rect.draw(graphics);
 	}
-	
+
 	private VRect buildBackground()
 	{
 		int x = 0;
 		int y = 0;
-		int w = Globals.getScreenDimension().getW();
-		int h = Globals.getScreenDimension().getH();
+		int w = Globals.SCREEN_DIMENSION.getRoundW();
+		int h = Globals.SCREEN_DIMENSION.getRoundH();
 
 		return new VRect(x, y, w, h, Color.black);
 	}
