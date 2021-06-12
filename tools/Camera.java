@@ -51,8 +51,6 @@ public class Camera
 	{
 		offset.incrementX(shiftX);
 		offset.incrementY(shiftY);
-		
-//		akk: camera, timer, rect, circle, spectator
 	}
 
 	/**
