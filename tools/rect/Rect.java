@@ -1,15 +1,14 @@
 package tools.rect;
 
 /**
- * The Rect class is a blue print for a data holder. It can hold x,y, width and
- * height values. All of those are from the data type int. The default for x and
- * y is 0 the default for w and h however, is 1.
- *
+ * The Rect class is a blueprint for a data holder. It can hold x,y, width and
+ * height values. All of those are of the data type int. The default for x and y
+ * is 0 the default for w and h however, is 1.
  */
 
 public class Rect
 {
-	protected int x, y, w = 1, h = 1;
+	protected float x, y, w = 1, h = 1;
 
 	/* clone constructor */
 	public Rect(Rect rect)
@@ -19,21 +18,21 @@ public class Rect
 		setW(rect.getW());
 		setH(rect.getH());
 	}
-	
-	public Rect(int x, int y)
+
+	public Rect(float x, float y)
 	{
 		setX(x);
 		setY(y);
 	}
 
-	public Rect(int x, int y, int w, int h)
+	public Rect(float x, float y, float w, float h)
 	{
 		setX(x);
 		setY(y);
 		setW(w);
 		setH(h);
 	}
-	
+
 	@Override
 	public String toString()
 	{
@@ -51,27 +50,40 @@ public class Rect
 	}
 
 	/**
+	 * Gibt true zurück, wenn alle Werte dieses Rect objektes mit allen Werten des
+	 * anderen Rect objectes other übereinstimmen.
+	 * 
+	 * @param other
+	 * @return
+	 */
+
+	public final boolean equal(Rect other)
+	{
+		return (this.x == other.getX() && this.y == other.getY() && this.w == other.getW() && this.h == other.getH());
+	}
+
+	/**
 	 * The IncrementX method will add the incrementX value to the current x value of
 	 * this rect.
 	 * 
 	 * @param incrementX
 	 */
 
-	public final void incrementX(int incrementX)
+	public final void incrementX(float incrementX)
 	{
 		setX(getX() + incrementX);
 	}
-	
-	public final void decrementX(int decrementX)
+
+	public final void decrementX(float decrementX)
 	{
 		setX(getX() - decrementX);
 	}
-	
-	public final void decrementY(int decrementY)
+
+	public final void decrementY(float decrementY)
 	{
 		setY(getY() - decrementY);
 	}
-	
+
 	/**
 	 * The IncrementY method will add the incrementY value to the current y value of
 	 * this rect.
@@ -79,11 +91,11 @@ public class Rect
 	 * @param incrementY
 	 */
 
-	public final void incrementY(int incrementY)
+	public final void incrementY(float incrementY)
 	{
 		setY(getY() + incrementY);
 	}
-	
+
 	/**
 	 * The IncrementW method will add the incrementW value to the current w value of
 	 * this rect.
@@ -91,16 +103,16 @@ public class Rect
 	 * @param incrementW
 	 */
 
-	public final void incrementW(int incrementW)
+	public final void incrementW(float incrementW)
 	{
 		setW(getW() + incrementW);
 	}
-	
-	public final void decrementW(int decrementW)
+
+	public final void decrementW(float decrementW)
 	{
 		setW(getW() - decrementW);
 	}
-	
+
 	/**
 	 * The IncrementH method will add the incrementH value to the current h value of
 	 * this rect.
@@ -108,52 +120,72 @@ public class Rect
 	 * @param incrementH
 	 */
 
-	public final void incrementH(int incrementH)
+	public final void incrementH(float incrementH)
 	{
 		setH(getH() + incrementH);
 	}
-	
-	public final void decrementH(int decrementH)
+
+	public final void decrementH(float decrementH)
 	{
 		setH(getH() - decrementH);
 	}
 
-	public int getX()
+	public float getX()
 	{
 		return x;
 	}
 
-	public int getY()
+	public float getY()
 	{
 		return y;
 	}
 
-	public int getW()
+	public float getW()
 	{
 		return w;
 	}
 
-	public int getH()
+	public float getH()
 	{
 		return h;
 	}
 
-	public void setX(int x)
+	public void setX(float x)
 	{
 		this.x = x;
 	}
+	
+	public int getRoundX()
+	{
+		return Math.round(x);
+	}
+	
+	public int getRoundY()
+	{
+		return Math.round(y);
+	}
+	
+	public int getRoundW()
+	{
+		return Math.round(w);
+	}
+	
+	public int getRoundH()
+	{
+		return Math.round(h);
+	}
 
-	public void setY(int y)
+	public void setY(float y)
 	{
 		this.y = y;
 	}
 
-	public void setW(int w)
+	public void setW(float w)
 	{
 		this.w = w;
 	}
 
-	public void setH(int h)
+	public void setH(float h)
 	{
 		this.h = h;
 	}

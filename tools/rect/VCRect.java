@@ -23,12 +23,12 @@ public class VCRect extends CRect implements Draw
 		setDisplayOutline(rect.isDisplayOutline());
 	}
 
-	public VCRect(int x, int y)
+	public VCRect(float x, float y)
 	{
 		super(x, y);
 	}
 
-	public VCRect(int x, int y, int w, int h)
+	public VCRect(float x, float y, float w, float h)
 	{
 		super(x, y, w, h);
 	}
@@ -39,13 +39,13 @@ public class VCRect extends CRect implements Draw
 		setDisplayOutline(displayOutline);
 	}
 
-	public VCRect(int x, int y, boolean displayOutline)
+	public VCRect(float x, float y, boolean displayOutline)
 	{
 		super(x, y);
 		setDisplayOutline(displayOutline);
 	}
 
-	public VCRect(int x, int y, int w, int h, boolean displayOutline)
+	public VCRect(float x, float y, float w, float h, boolean displayOutline)
 	{
 		super(x, y, w, h);
 		setDisplayOutline(displayOutline);
@@ -63,6 +63,12 @@ public class VCRect extends CRect implements Draw
 	protected void displayOutline(Graphics2D graphics)
 	{
 		graphics.setColor(Color.orange);
+		
+		int x = Math.round(this.x);
+		int y = Math.round(this.y);
+		int w = Math.round(this.w);
+		int h = Math.round(this.h);
+		
 		graphics.drawRect(x, y, w, h);
 	}
 	

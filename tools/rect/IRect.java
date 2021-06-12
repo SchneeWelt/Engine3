@@ -35,13 +35,13 @@ public class IRect extends VRect
 		setDisplayImage(iRect.isDisplayImage());
 	}
 
-	public IRect(int x, int y, BufferedImage image)
+	public IRect(float x, float y, BufferedImage image)
 	{
 		super(x, y);
 		setImage(image);
 	}
 
-	public IRect(int x, int y, int w, int h, BufferedImage image)
+	public IRect(float x, float y, float w, float h, BufferedImage image)
 	{
 		super(x, y, w, h);
 		setImage(image);
@@ -59,6 +59,11 @@ public class IRect extends VRect
 		if (image == null)
 			return;
 
+		int x = Math.round(this.x);
+		int y = Math.round(this.y);
+		int w = Math.round(this.w);
+		int h = Math.round(this.h);
+		
 		graphics.drawImage(image, x, y, w, h, null);
 	}
 

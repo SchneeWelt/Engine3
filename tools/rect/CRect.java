@@ -3,8 +3,8 @@ package tools.rect;
 import java.awt.Rectangle;
 
 /**
- * The CRect or CollisionRect describes a blueprint for rect which can test
- * collision between each other.
+ * The CRect or CollisionRect describes a blueprint for rect which is collision
+ * sensitev.
  */
 
 public class CRect extends Rect
@@ -14,25 +14,31 @@ public class CRect extends Rect
 		super(rect);
 	}
 
-	public CRect(int x, int y)
+	public CRect(float x, float y)
 	{
 		super(x, y);
 	}
 
-	public CRect(int x, int y, int w, int h)
+	public CRect(float x, float y, float w, float h)
 	{
 		super(x, y, w, h);
 	}
 
 	public final boolean isCollision(CRect other)
 	{
-		int x = other.getX();
-		int y = other.getY();
-		int w = other.getW();
-		int h = other.getH();
-		Rectangle r1 = new Rectangle(x, y, w, h);
-		Rectangle r2 = new Rectangle(this.x, this.y, this.w, this.h);
-		
+		int x = Math.round(this.x);
+		int y = Math.round(this.y);
+		int w = Math.round(this.w);
+		int h = Math.round(this.h);
+
+		int xo = Math.round(other.getX());
+		int yo = Math.round(other.getY());
+		int wo = Math.round(other.getW());
+		int ho = Math.round(other.getH());
+
+		Rectangle r1 = new Rectangle(xo, yo, wo, ho);
+		Rectangle r2 = new Rectangle(x, y, w, h);
+
 		return r1.intersects(r2);
 	}
 }

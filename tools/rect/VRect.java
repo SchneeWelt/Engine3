@@ -54,42 +54,42 @@ public class VRect extends Rect implements Draw
 		setDisplayState(vRect.getDisplayState());
 	}
 
-	public VRect(int x, int y)
+	public VRect(float x, float y)
 	{
 		super(x, y);
 	}
-	
+
 	public VRect(Rect location, Color color)
 	{
 		super(location);
 		setColor(color);
 	}
 
-	public VRect(int x, int y, int w, int h)
+	public VRect(float x, float y, float w, float h)
 	{
 		super(x, y, w, h);
 	}
 
-	public VRect(int x, int y, int w, int h, Color color)
+	public VRect(float x, float y, float w, float h, Color color)
 	{
 		super(x, y, w, h);
 		setColor(color);
 	}
 
-	public VRect(int x, int y, int w, int h, int DISPLAY_STATE)
+	public VRect(float x, float y, float w, float h, int DISPLAY_STATE)
 	{
 		super(x, y, w, h);
 		setDisplayState(DISPLAY_STATE);
 	}
 
-	public VRect(int x, int y, int w, int h, int DISPLAY_STATE, int strokeWidth)
+	public VRect(float x, float y, float w, float h, int DISPLAY_STATE, int strokeWidth)
 	{
 		super(x, y, w, h);
 		setStrokeWidth(strokeWidth);
 		setDisplayState(DISPLAY_STATE);
 	}
 
-	public VRect(int x, int y, int w, int h, int DISPLAY_STATE, int strokeWidth, Color color)
+	public VRect(float x, float y, float w, float h, int DISPLAY_STATE, int strokeWidth, Color color)
 	{
 		super(x, y, w, h);
 		setColor(color);
@@ -122,10 +122,22 @@ public class VRect extends Rect implements Draw
 //		}
 
 		if (displayState == DISPLAY_STATE_FILL)
+		{
+			int x = Math.round(this.x);
+			int y = Math.round(this.y);
+			int w = Math.round(this.w);
+			int h = Math.round(this.h);
+
 			graphics.fillRect(x, y, w, h);
-		else if (displayState == DISPLAY_STATE_OUTLINE)
+		} else if (displayState == DISPLAY_STATE_OUTLINE)
 		{
 			graphics.setStroke(new BasicStroke(strokeWidth));
+
+			int x = Math.round(this.x);
+			int y = Math.round(this.y);
+			int w = Math.round(this.w);
+			int h = Math.round(this.h);
+
 			graphics.drawRect(x, y, w, h);
 		}
 	}
