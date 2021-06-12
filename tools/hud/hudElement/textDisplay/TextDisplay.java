@@ -396,9 +396,9 @@ public class TextDisplay extends HUDElement implements OnButtonClick
 
 	private final void createPage()
 	{
-		int xStart = location.getX() + Letter.LETTER_SIZE_X;
-		int yStart = location.getY() + Letter.LETTER_SIZE_Y;
-		PageFactory pageFactory = new PageFactory(lineOffset, xStart, yStart, cursor, location, hud);
+		float xStart = location.getX() + Letter.LETTER_SIZE_X;
+		float yStart = location.getY() + Letter.LETTER_SIZE_Y;
+		PageFactory pageFactory = new PageFactory(lineOffset, (int) xStart, (int) yStart, cursor, location, hud);
 
 		page = pageFactory.getPage();
 	}

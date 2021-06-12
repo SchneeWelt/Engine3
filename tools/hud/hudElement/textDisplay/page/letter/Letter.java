@@ -97,7 +97,13 @@ public class Letter extends HUDElement
 
 		graphics.setColor(Color.red);
 		graphics.setStroke(new BasicStroke(innerStrokeSize));
-		graphics.drawRect(location.getX(), location.getY(), location.getW(), location.getH());
+
+		int x = Math.round(location.getX());
+		int y = Math.round(location.getY());
+		int w = Math.round(location.getW());
+		int h = Math.round(location.getH());
+
+		graphics.drawRect(x, y, w, h);
 	}
 
 	public final void selectLetter()
@@ -138,7 +144,13 @@ public class Letter extends HUDElement
 			return;
 
 		graphics.setColor(highlight);
-		graphics.fillRect(location.getX(), location.getY(), location.getW(), location.getH());
+
+		int x = Math.round(location.getX());
+		int y = Math.round(location.getY());
+		int w = Math.round(location.getW());
+		int h = Math.round(location.getH());
+
+		graphics.fillRect(x, y, w, h);
 
 	}
 
@@ -147,8 +159,13 @@ public class Letter extends HUDElement
 		if (character == null)
 			return;
 
-		int rawPositionX = location.getX() + location.getW() / 2;
-		int rawPositionY = location.getY() + location.getH() / 2;
+		int x = Math.round(location.getX());
+		int y = Math.round(location.getY());
+		int w = Math.round(location.getW());
+		int h = Math.round(location.getH());
+
+		int rawPositionX = x + w / 2;
+		int rawPositionY = y + h / 2;
 
 		int charSize = graphics.getFontMetrics().stringWidth(character + "");
 

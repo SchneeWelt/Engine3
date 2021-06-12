@@ -50,32 +50,38 @@ public abstract class HUDElement implements Draw, OnKeyRelease, OnKeyPress, OnMo
 	@Override
 	public void onMousePress(MouseEvent e)
 	{
-		
+
 	}
 
 	@Override
 	public void onMouseRelease(MouseEvent e)
 	{
-		
+
 	}
 
 	@Override
 	public void onKeyPress(KeyEvent e)
 	{
-		
+
 	}
 
 	@Override
 	public void onKeyRelease(KeyEvent e)
 	{
-		
+
 	}
 
 	protected void displayOutline(Graphics2D graphics)
 	{
 		graphics.setColor(outlineColor);
 		graphics.setStroke(outlineStroke);
-		graphics.drawRect(location.getX(), location.getY(), location.getW(), location.getH());
+
+		int x = Math.round(location.getX());
+		int y = Math.round(location.getY());
+		int w = Math.round(location.getW());
+		int h = Math.round(location.getH());
+
+		graphics.drawRect(x, y, w, h);
 	}
 
 	/**
@@ -85,11 +91,14 @@ public abstract class HUDElement implements Draw, OnKeyRelease, OnKeyPress, OnMo
 
 	protected final boolean isElementSelected()
 	{
-		Rect mouseLocation = new Rect((int) Globals.getMouseLocation().getX(),
-				(int) Globals.getMouseLocation().getY());
+		Rect mouseLocation = new Rect(Globals.getMouseLocation().getX(), Globals.getMouseLocation().getY());
 
-		return new Rectangle(location.getX(), location.getY(), location.getW(), location.getH())
-				.contains(new Point(mouseLocation.getX(), mouseLocation.getY()));
+		int x = Math.round(location.getX());
+		int y = Math.round(location.getY());
+		int w = Math.round(location.getW());
+		int h = Math.round(location.getH());
+
+		return new Rectangle(x, y, w, h).contains(new Point((int) mouseLocation.getX(), (int) mouseLocation.getY()));
 	}
 
 	/**
@@ -100,8 +109,12 @@ public abstract class HUDElement implements Draw, OnKeyRelease, OnKeyPress, OnMo
 
 	protected final boolean isElementSelected(Point mouseLocation)
 	{
-		return new Rectangle(location.getX(), location.getY(), location.getW(), location.getH())
-				.contains(mouseLocation);
+		int x = Math.round(location.getX());
+		int y = Math.round(location.getY());
+		int w = Math.round(location.getW());
+		int h = Math.round(location.getH());
+
+		return new Rectangle(x, y, w, h).contains(mouseLocation);
 	}
 
 	public final Rect getLocation()

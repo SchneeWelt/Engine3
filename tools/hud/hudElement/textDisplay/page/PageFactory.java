@@ -68,7 +68,7 @@ public class PageFactory
 		setupLine(x, y, line, 0, cursor);
 
 		/* abbruch steuerung */
-		int border = location.getY() + location.getH() - Letter.LETTER_SIZE_Y;
+		int border = Math.round(location.getY()) + Math.round(location.getH()) - Letter.LETTER_SIZE_Y;
 		if (y < border)
 		{
 			setupLines(x, y + Letter.LETTER_SIZE_Y + lineOffset, line += 1, cursor);
@@ -92,7 +92,7 @@ public class PageFactory
 		ExtendetLetter le = new ExtendetLetter(line, letter, cursor, hud, new Rect(x, y));
 		l.appendLetter(le);
 
-		int border = location.getX() + location.getW() - Letter.LETTER_SIZE_X;
+		int border = Math.round(location.getX()) + Math.round(location.getW()) - Letter.LETTER_SIZE_X;
 
 		if (x < border)
 			setupLine(x += Letter.LETTER_SIZE_X, y, line, letter += 1, cursor);

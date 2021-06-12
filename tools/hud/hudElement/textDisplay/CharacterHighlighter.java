@@ -24,22 +24,22 @@ public class CharacterHighlighter implements Draw
 		defineLastPosition();
 		highleightNewCharacter();
 	}
-	
+
 	private final void highleightNewCharacter()
 	{
 		textDisplay.highlightCharacter(cursor.getLine(), cursor.getLetter());
 	}
-	
+
 	private final void defineLastPosition()
 	{
 		lastPosition.setY(cursor.getLine());
 		lastPosition.setX(cursor.getLetter());
 	}
-	
+
 	private final void undoLastHighlight()
 	{
-		int line = lastPosition.getY();
-		int letter = lastPosition.getX();
+		int line = Math.round(lastPosition.getY());
+		int letter = Math.round(lastPosition.getX());
 		textDisplay.undoCharacterHighlight(line, letter);
 	}
 }

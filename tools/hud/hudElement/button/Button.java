@@ -104,8 +104,13 @@ public class Button extends HUDElement
 		if (isButtonSelected())
 		{
 			graphics.setColor(buttonShaderColor);
-			graphics.fillRect(location.getX() + STROKE_SIZE / 2, location.getY() + STROKE_SIZE / 2,
-					location.getW() - STROKE_SIZE, location.getH());
+
+			int x = Math.round(location.getX());
+			int y = Math.round(location.getY());
+			int w = Math.round(location.getW());
+			int h = Math.round(location.getH());
+
+			graphics.fillRect(x + STROKE_SIZE / 2, y + STROKE_SIZE / 2, w - STROKE_SIZE, h);
 		}
 	}
 
@@ -129,8 +134,13 @@ public class Button extends HUDElement
 		int strokeSize = 3;
 		graphics.setColor(Color.white);
 		graphics.setStroke(new BasicStroke(strokeSize));
-		graphics.drawRect(location.getX() + strokeSize / 2, location.getY() + strokeSize / 2,
-				location.getW() - strokeSize, location.getH());
+
+		int x = Math.round(location.getX());
+		int y = Math.round(location.getY());
+		int w = Math.round(location.getW());
+		int h = Math.round(location.getH());
+
+		graphics.drawRect(x + strokeSize / 2, y + strokeSize / 2, w - strokeSize, h);
 
 		/* sensoric reset */
 		graphics.setColor(pastColor);
