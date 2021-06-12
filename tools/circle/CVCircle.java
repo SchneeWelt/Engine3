@@ -20,17 +20,17 @@ public class CVCircle extends CCircle implements Draw
 
 	private Color outlineColor = Color.orange;
 
-	public CVCircle(int x, int y, OnCollision onCollisionEventTarget)
+	public CVCircle(float x, float y, OnCollision onCollisionEventTarget)
 	{
 		super(x, y, onCollisionEventTarget);
 	}
 
-	public CVCircle(int x, int y, int r, OnCollision onCollisionEventTarget)
+	public CVCircle(float x, float y, float r, OnCollision onCollisionEventTarget)
 	{
 		super(x, y, r, onCollisionEventTarget);
 	}
 
-	public CVCircle(int x, int y, int r, OnCollision onCollisionEventTarget, Color outlineColor)
+	public CVCircle(float x, float y, float r, OnCollision onCollisionEventTarget, Color outlineColor)
 	{
 		super(x, y, r, onCollisionEventTarget);
 		setOutlineColor(outlineColor);
@@ -52,7 +52,12 @@ public class CVCircle extends CCircle implements Draw
 	private final void displayCircle(Graphics2D graphics)
 	{
 		graphics.setColor(outlineColor);
-		graphics.drawOval(getX() - getR(), getY() - getR(), getR() * 2, getR() * 2);
+		
+		int x = Math.round(this.x);
+		int y = Math.round(this.y);
+		int r = Math.round(this.r);
+		
+		graphics.drawOval(x - r, y - r, r * 2, r * 2);
 	}
 
 	private final void setOutlineColor(Color outlineColor)

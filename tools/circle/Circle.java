@@ -9,8 +9,8 @@ package tools.circle;
 
 public class Circle
 {
-	protected int x, y, r = 10;
-	
+	protected float x, y, r = 10;
+
 	/* clone constructor */
 	public Circle(Circle circle)
 	{
@@ -19,13 +19,13 @@ public class Circle
 		setR(circle.getR());
 	}
 
-	public Circle(int x, int y)
+	public Circle(float x, float y)
 	{
 		setX(x);
 		setY(y);
 	}
 
-	public Circle(int x, int y, int r)
+	public Circle(float x, float y, float r)
 	{
 		setX(x);
 		setY(y);
@@ -39,7 +39,7 @@ public class Circle
 	 * @param incrementX
 	 */
 
-	public final void incrementX(int incrementX)
+	public final void incrementX(float incrementX)
 	{
 		setX(getX() + incrementX);
 	}
@@ -51,7 +51,7 @@ public class Circle
 	 * @param incrementY
 	 */
 
-	public final void incrementY(int incrementY)
+	public final void incrementY(float incrementY)
 	{
 		setY(getY() + incrementY);
 	}
@@ -63,37 +63,80 @@ public class Circle
 	 * @param incrementR
 	 */
 
-	public final void incrementR(int incrementR)
+	public final void incrementR(float incrementR)
 	{
 		setR(getR() + incrementR);
 	}
 
-	public final int getX()
+	public final void decrementY(float decrementY)
+	{
+		setY(getY() - decrementY);
+	}
+	
+	public final void decrementX(float decrementX)
+	{
+		setX(getX() - decrementX);
+	}
+	
+	public final void decrementR(float decrementR)
+	{
+		setR(getR() - decrementR);
+	}
+
+	/**
+	 * Returns true when all values of the object where the method is called from
+	 * are equal with the other object
+	 * 
+	 * @param other
+	 * @return
+	 */
+
+	public final boolean equals(Circle other)
+	{
+		return (this.x == other.getX() && this.y == other.getY() && this.r == other.getR());
+	}
+
+	public final int getRoundX()
+	{
+		return Math.round(x);
+	}
+	
+	public final int getRoundY()
+	{
+		return Math.round(y);
+	}
+	
+	public final int getRoundR()
+	{
+		return Math.round(r);
+	}
+	
+	public final float getX()
 	{
 		return x;
 	}
 
-	public final int getY()
+	public final float getY()
 	{
 		return y;
 	}
 
-	public final int getR()
+	public final float getR()
 	{
 		return r;
 	}
 
-	public final void setX(int x)
+	public final void setX(float x)
 	{
 		this.x = x;
 	}
 
-	public final void setY(int y)
+	public final void setY(float y)
 	{
 		this.y = y;
 	}
 
-	public final void setR(int r)
+	public final void setR(float r)
 	{
 		this.r = r;
 	}

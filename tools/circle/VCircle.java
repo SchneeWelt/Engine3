@@ -26,29 +26,29 @@ public class VCircle extends Circle implements Draw
 
 	private Color color = Color.orange;
 
-	public VCircle(int x, int y)
+	public VCircle(float x, float y)
 	{
 		super(x, y);
 	}
 
-	public VCircle(int x, int y, int r)
+	public VCircle(float x, float y, float r)
 	{
 		super(x, y, r);
 	}
 
-	public VCircle(int x, int y, int r, Color color)
+	public VCircle(float x, float y, float r, Color color)
 	{
 		super(x, y, r);
 		setColor(color);
 	}
-	
-	public VCircle(int x, int y, int r, int DISPLAY_STATE)
+
+	public VCircle(float x, float y, float r, int DISPLAY_STATE)
 	{
 		super(x, y, r);
 		setDisplayState(DISPLAY_STATE);
 	}
-	
-	public VCircle(int x, int y, int r, int DISPLAY_STATE, Color color)
+
+	public VCircle(float x, float y, float r, int DISPLAY_STATE, Color color)
 	{
 		super(x, y, r);
 		setColor(color);
@@ -59,13 +59,13 @@ public class VCircle extends Circle implements Draw
 	public void draw(Graphics2D graphics)
 	{
 		graphics.setColor(color);
-		
+
 //		switch(displayState)
 //		{
 //			case DISPLAY_STATE_FILL -> fillCircle(graphics);
 //			case DISPLAY_STATE_OUTLINE -> outlineCircle(graphics);
 //		}
-		
+
 		if (displayState == DISPLAY_STATE_FILL)
 			fillCircle(graphics);
 		else if (displayState == DISPLAY_STATE_OUTLINE)
@@ -78,16 +78,24 @@ public class VCircle extends Circle implements Draw
 
 	private final void outlineCircle(Graphics2D graphics)
 	{
-		graphics.drawOval(getX() - getR(), getY() - getR(), getR() * 2, getR() * 2);
+		int x = Math.round(this.x);
+		int y = Math.round(this.y);
+		int r = Math.round(this.r);
+
+		graphics.drawOval(x - r, y - r, r * 2, r * 2);
 	}
-	
+
 	/*
 	 * based on the x, y and r values this method fills a centered circle on screen.
 	 */
 
 	private final void fillCircle(Graphics2D graphics)
 	{
-		graphics.fillOval(getX() - getR(), getY() - getR(), getR() * 2, getR() * 2);
+		int x = Math.round(this.x);
+		int y = Math.round(this.y);
+		int r = Math.round(this.r);
+
+		graphics.fillOval(x - r, y - r, r * 2, r * 2);
 	}
 
 	public final Color getColor()

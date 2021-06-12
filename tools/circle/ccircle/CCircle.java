@@ -14,13 +14,13 @@ public class CCircle extends Circle
 {
 	private OnCollision target = null;
 
-	public CCircle(int x, int y, OnCollision onCollisionEventTarget)
+	public CCircle(float x, float y, OnCollision onCollisionEventTarget)
 	{
 		super(x, y);
 		setOnCollisionEventTarget(onCollisionEventTarget);
 	}
 
-	public CCircle(int x, int y, int r, OnCollision onCollisionEventTarget)
+	public CCircle(float x, float y, float r, OnCollision onCollisionEventTarget)
 	{
 		super(x, y, r);
 		setOnCollisionEventTarget(onCollisionEventTarget);
@@ -54,8 +54,16 @@ public class CCircle extends Circle
 	 */
 	public final boolean isCollision(CCircle other)
 	{
-		int dist = (int) new Point(x, y).distance(new Point(other.x, other.y));
-		int radia = r + other.getR();
+		int x = Math.round(this.x);
+		int y = Math.round(this.y);
+		int r = Math.round(this.r);
+		
+		int xo = Math.round(other.getX());
+		int yo = Math.round(other.getY());
+		int ro = Math.round(other.getR());
+		
+		int dist = (int) new Point(x, y).distance(new Point(xo, yo));
+		int radia = r + ro;
 
 		return (dist < radia);
 	}
