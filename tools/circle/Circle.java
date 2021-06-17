@@ -53,7 +53,7 @@ public class Circle
 	}
 	
 	/**
-	* gillt für x und y
+	* gillt fÃ¼r x und y
 	*/
 
 	public final void collapse()
@@ -73,7 +73,7 @@ public class Circle
 	}
 
 	/**
-	*	Gillt für x, y und r
+	*	Gillt fÃ¼r x, y und r
 	*/
 
 	public final void collapseAll()
@@ -88,7 +88,7 @@ public class Circle
 	}
 	
 	/**
-	 * Gibt ein neuen Vektor des Types Circle zurück, welcher die Länge eins
+	 * Gibt ein neuen Vektor des Types Circle zurÃ¼ck, welcher die LÃ¤nge eins
 	 * hat.
 	 * 
 	 * @return
@@ -153,7 +153,7 @@ public class Circle
 	 * @return
 	 */
 
-	public final boolean equals(Circle other)
+	public final boolean isEqual(Circle other)
 	{
 		return (this.x == other.getX() && this.y == other.getY() && this.r == other.getR());
 	}
