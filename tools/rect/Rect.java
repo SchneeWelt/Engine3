@@ -56,19 +56,6 @@ public class Rect
 	}
 
 	/**
-	 * Gibt true zurück, wenn alle Werte dieses Rect objektes mit allen Werten des
-	 * anderen Rect objectes other übereinstimmen.
-	 * 
-	 * @param other
-	 * @return
-	 */
-
-	public final boolean equal(Rect other)
-	{
-		return (this.x == other.getX() && this.y == other.getY() && this.w == other.getW() && this.h == other.getH());
-	}
-
-	/**
 	 * The IncrementX method will add the incrementX value to the current x value of
 	 * this rect.
 	 * 
@@ -81,7 +68,7 @@ public class Rect
 	}
 
 	/**
-	* gillt für x und y
+	* gillt fÃ¼r x und y
 	*/
 
 	public final void collapse()
@@ -91,7 +78,7 @@ public class Rect
 	}
 
 	/**
-	*	Gillt für x, y, w und h
+	*	Gillt fÃ¼r x, y, w und h
 	*/
 
 	public final void collapseAll()
@@ -178,7 +165,7 @@ public class Rect
 	}
 
 	/**
-	 * Gibt ein neuen Vektor des Types Rect zurück, welcher die Länge eins
+	 * Gibt ein neuen Vektor des Types Rect zurÃ¼ck, welcher die LÃ¤nge eins
 	 * hat.
 	 * 
 	 * @return
@@ -196,6 +183,19 @@ public class Rect
 		return result;
 	}
 
+	/**
+	 * Gibt true zurÃ¼ck, wenn alle Werte dieses Rect objektes mit allen Werten des
+	 * anderen Rect objectes other Ã¼bereinstimmen.
+	 * 
+	 * @param other
+	 * @return
+	 */
+
+	public final boolean isEqual(Rect other)
+	{
+		return (this.x == other.getX() && this.y == other.getY() && this.w == other.getW() && this.h == other.getH());
+	}
+	
 	public float getX()
 	{
 		return x;
