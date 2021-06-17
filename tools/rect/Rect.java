@@ -19,6 +19,12 @@ public class Rect
 		setH(rect.getH());
 	}
 
+	public Rect()
+	{
+		x = 0;
+		y = 0;
+	}
+
 	public Rect(float x, float y)
 	{
 		setX(x);
@@ -44,7 +50,7 @@ public class Rect
 		output += " ";
 		output += "H:" + h;
 		output += "\n";
-		output += "Default:" + super.toString();
+		output += "Default: " + super.toString();
 
 		return output;
 	}
@@ -73,18 +79,43 @@ public class Rect
 	{
 		setX(getX() + incrementX);
 	}
-	
+
+	/**
+	* gillt für x und y
+	*/
+
 	public final void collapse()
 	{
 		collapseX();
 		collapseY();
+	}
+
+	/**
+	*	Gillt für x, y, w und h
+	*/
+
+	public final void collapseAll()
+	{
+		collapse();
+		collapseW();
+		collapseH();
+	}
+
+	public final void collapseW()
+	{
+		setW(0);
+	}
+
+	public final void collapseH()
+	{ 
+		setH(0);
 	}
 	
 	public final void collapseY()
 	{
 		setY(0);
 	}
-	
+
 	public final void collapseX()
 	{
 		setX(0);
@@ -146,6 +177,25 @@ public class Rect
 		setH(getH() - decrementH);
 	}
 
+	/**
+	 * Gibt ein neuen Vektor des Types Rect zurück, welcher die Länge eins
+	 * hat.
+	 * 
+	 * @return
+	 */
+
+	public final Rect normalize()
+	{
+		float newX, newY;
+		float betrag = (float) Math.sqrt(this.x * this.x + this.y * this.y);
+
+		newX = x / betrag;
+		newY = y / betrag;
+		Rect result = new Rect(newX, newY);
+
+		return result;
+	}
+
 	public float getX()
 	{
 		return x;
@@ -170,22 +220,22 @@ public class Rect
 	{
 		this.x = x;
 	}
-	
+
 	public int getRoundX()
 	{
 		return Math.round(x);
 	}
-	
+
 	public int getRoundY()
 	{
 		return Math.round(y);
 	}
-	
+
 	public int getRoundW()
 	{
 		return Math.round(w);
 	}
-	
+
 	public int getRoundH()
 	{
 		return Math.round(h);
