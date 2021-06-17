@@ -1,5 +1,7 @@
 package tools.circle;
 
+import tools.rect.Rect;
+
 /**
  * The Circle class is a data holder holdable values are x, y and radius. All
  * thre values can be get and set with their getters and setter.
@@ -17,6 +19,12 @@ public class Circle
 		setX(circle.getX());
 		setY(circle.getY());
 		setR(circle.getR());
+	}
+	
+	public Circle()
+	{
+		x = 0; 
+		y = 0;
 	}
 
 	public Circle(float x, float y)
@@ -44,6 +52,10 @@ public class Circle
 		setX(getX() + incrementX);
 	}
 	
+	/**
+	* gillt für x und y
+	*/
+
 	public final void collapse()
 	{
 		collapseX();
@@ -58,6 +70,40 @@ public class Circle
 	public final void collapseX()
 	{
 		setX(0);
+	}
+
+	/**
+	*	Gillt für x, y und r
+	*/
+
+	public final void collapseAll()
+	{
+		collapse();
+		collapseR();
+	}
+
+	public final void collapseR()
+	{
+		setR(0);
+	}
+	
+	/**
+	 * Gibt ein neuen Vektor des Types Circle zurück, welcher die Länge eins
+	 * hat.
+	 * 
+	 * @return
+	 */
+
+	public final Rect normalize()
+	{
+		float newX, newY;
+		float betrag = (float) Math.sqrt(this.x * this.x + this.y * this.y);
+
+		newX = x / betrag;
+		newY = y / betrag;
+		Rect result = new Rect(newX, newY);
+
+		return result;
 	}
 
 	/**
