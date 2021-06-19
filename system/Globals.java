@@ -16,31 +16,32 @@ public class Globals
 
 	/* global system data */
 	public static double TICKS = 30;
+	public static double preferedTicks = TICKS; 
 	public static double TICK_RATE = 1000 / TICKS;
 	public static final Rect SCREEN_DIMENSION = new Rect(0, 0, 900, 600);
-	
+
 	/* kill switch */
 	public static boolean running = true;
-	
+
 	public final static void shutdown()
 	{
 		Globals.running = false;
 	}
-	
+
 	/**
 	 * Reasings the Value TICK_RATE by recomputung it based on TICKS
 	 */
-	
+
 	public static final void updateTickRate()
 	{
 		Globals.TICK_RATE = 1000 / TICKS;
 	}
-	
+
 	public static final boolean isMousePressed()
 	{
 		return mousePressed;
 	}
-	
+
 	public static final KeyEventHandler getKeyEventHandler()
 	{
 		return keyEventHandler;

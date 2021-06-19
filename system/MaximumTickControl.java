@@ -24,23 +24,21 @@ public class MaximumTickControl implements Update
 	private final void compareDeltaTime()
 	{
 		if (isAboveGPUPerformance())
-		{
-			printError();
 			decreaseTicks();
-		} 
-	}
-	
-	private final void printError()
-	{
-		String message = "[System] A Tick value of: " + Globals.TICKS;
-		message += "\nIs to high!\nSo I decrease the Value to: " + (Globals.TICKS - decreasor);
 		
-		System.out.println(message);
+		if (isUnderPreferedTicks())
+			increaseTicks();
 	}
 	
 	private final void decreaseTicks()
 	{
 		Globals.TICKS -= decreasor;
+		Globals.updateTickRate();
+	}
+	
+	private final void increaseTicks()
+	{
+		Globals.TICKS += 1;
 		Globals.updateTickRate();
 	}
 
@@ -57,6 +55,11 @@ public class MaximumTickControl implements Update
 	public final void takeStop()
 	{
 		stop = System.currentTimeMillis();
+	}
+	
+	private final boolean isUnderPreferedTicks()
+	{
+		return (Globals.TICKS < Globals.preferedTicks);
 	}
 	
 	private final boolean isAboveGPUPerformance()
