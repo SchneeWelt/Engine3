@@ -18,21 +18,21 @@ import in.Draw;
 
 public class Timer implements Draw
 {
-	private int max = 30;
-	private int counter = 0;
-	private final int MIN = 0;
-	private final int INCREMENT_PER_TICK = 1;
+	private double max = 30;
+	private double counter = 0;
+	private final double MIN = 0;
+	protected double INCREMENT_PER_TICK = 1;
 
 	private TimerEvent timerEvent;
 	private OnTimerTrigger target;
 
-	public Timer(int max, OnTimerTrigger target, String timerId)
+	public Timer(double max, OnTimerTrigger target, String timerId)
 	{
 		setup(max, target);
 		timerEvent = new TimerEvent(timerId);
 	}
 	
-	public Timer(int max, OnTimerTrigger target)
+	public Timer(double max, OnTimerTrigger target)
 	{
 		setup(max, target);
 		timerEvent = new TimerEvent("default");
@@ -50,7 +50,7 @@ public class Timer implements Draw
 		}
 	}
 	
-	private final void setup(int max, OnTimerTrigger target)
+	private final void setup(double max, OnTimerTrigger target)
 	{
 		setMax(max);
 		resetTimer();
@@ -62,7 +62,7 @@ public class Timer implements Draw
 		counter = MIN;
 	}
 	
-	public final int getCurrentCount()
+	public final double getCurrentCount()
 	{
 		return counter;
 	}
@@ -77,7 +77,7 @@ public class Timer implements Draw
 		counter += INCREMENT_PER_TICK;
 	}
 
-	private final void setMax(int max)
+	private final void setMax(double max)
 	{
 		this.max = max;
 	}
