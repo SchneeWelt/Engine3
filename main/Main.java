@@ -19,7 +19,6 @@ public class Main implements Draw
 	 */
 
 	private IFrame iFrame = new IFrame("");
-	private Workbench workbench = new Workbench();
 	private MaximumTickControl maximumTickControl = new MaximumTickControl();
 
 	public Main()
@@ -57,7 +56,7 @@ public class Main implements Draw
 	@Override
 	public final void draw(Graphics2D graphics)
 	{
-		workbench.draw(graphics);
+		
 	}
 
 	/**
