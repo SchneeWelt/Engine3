@@ -16,7 +16,6 @@ public class Globals
 
 	/* global system data */
 	public static double TICKS = 30;
-	public static double preferedTicks = TICKS; 
 	public static double TICK_RATE = 1000 / TICKS;
 	public static final Rect SCREEN_DIMENSION = new Rect(0, 0, 900, 600);
 
