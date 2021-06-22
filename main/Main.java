@@ -7,7 +7,6 @@ import gui.RepaintControler;
 import in.Draw;
 import objects.Workbench;
 import system.Globals;
-import system.MaximumTickControl;
 
 public class Main implements Draw
 {
@@ -19,7 +18,6 @@ public class Main implements Draw
 	 */
 
 	private IFrame iFrame = new IFrame("");
-	private MaximumTickControl maximumTickControl = new MaximumTickControl();
 
 	public Main()
 	{
@@ -30,17 +28,9 @@ public class Main implements Draw
 		{
 			sleep();
 
-			/* System for GPU */
-			maximumTickControl.takeStart();
-
 			/* rendering and main computing */
 			draw(iFrame.getCanvasGraphics());
 			RepaintControler.getRepaintControler().repaintCanvas();
-
-			/* System for GPU */
-			maximumTickControl.takeStop();
-			maximumTickControl.update();
-
 		}
 
 		/* shutdown sequenz */
