@@ -41,7 +41,7 @@ public class IFrame extends JFrame
 
 	public final void repaintCanvas(Rect area)
 	{
-		iPanel.repaint(new Rectangle(area.getRoundX(), area.getRoundH(), area.getRoundW(), area.getRoundH()));
+		iPanel.repaint(new Rectangle(area.getRoundX(), area.getRoundY(), area.getRoundW(), area.getRoundH()));
 	}
 
 	public final void repaintCanvas()
