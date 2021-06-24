@@ -6,23 +6,34 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import globalValues.Globals;
+import system.Globals;
 import tools.rect.Rect;
 
 public class IPanel extends JPanel
 {
 	private static final long serialVersionUID = 1L;
-	
+
 	/* Auf diesem BufferedImage objekt malt das IFrame */
-	private BufferedImage canvas = createCanvas(); // static...
+	private BufferedImage canvas = createCanvas();
 
 	public IPanel()
 	{
 		setupSize();
+
+		addMouseWheelListener(new MouseWheelListener()
+		{
+			@Override
+			public void mouseWheelMoved(MouseWheelEvent e)
+			{
+				Globals.getMouseEventHandler().triggerOnMouseWheelMove(e);
+			}
+		});
 
 		addMouseMotionListener(new MouseMotionListener()
 		{
@@ -102,11 +113,10 @@ public class IPanel extends JPanel
 	{
 		int w = Globals.SCREEN_DIMENSION.getRoundW();
 		int h = Globals.SCREEN_DIMENSION.getRoundH();
-
 		setSize(new Dimension(w, h));
 	}
 
-	public final BufferedImage getCanvas() // static ...
+	public final BufferedImage getCanvas()
 	{
 		return canvas;
 	}
