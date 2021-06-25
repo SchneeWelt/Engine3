@@ -62,6 +62,16 @@ public class Timer implements Draw
 		counter = MIN;
 	}
 	
+	private final void incrementCounter()
+	{
+		counter += INCREMENT_PER_TICK;
+	}
+	
+	public final double getMax()
+	{
+		return max;
+	}
+
 	public final double getCurrentCount()
 	{
 		return counter;
@@ -70,11 +80,6 @@ public class Timer implements Draw
 	public final String getTimerId()
 	{
 		return timerEvent.getTimerId();
-	}
-
-	private final void incrementCounter()
-	{
-		counter += INCREMENT_PER_TICK;
 	}
 
 	private final void setMax(double max)
