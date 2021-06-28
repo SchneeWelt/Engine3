@@ -1,4 +1,4 @@
-package objects.worldObject.blop.eyes.rayCasting;
+package tools.rayCasting;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -27,7 +27,7 @@ public class Boundary implements Draw
 	private final void displayBoundary(Graphics2D graphics)
 	{
 		graphics.setColor(debugColor);
-		Shapes.drawCirlce(circle.getX(), circle.getY(), circle.getR(), graphics);
+		Shapes.drawCirlce(circle.getRoundX(), circle.getRoundY(), circle.getRoundR(), graphics);
 	}
 	
 	public final float getR()

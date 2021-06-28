@@ -3,10 +3,10 @@ package tools;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
-import globalValues.Globals;
 import handler.in.OnKeyPress;
 import handler.in.OnKeyRelease;
 import in.Draw;
+import system.Globals;
 import tools.rect.Rect;
 
 /**

@@ -1,4 +1,4 @@
-package objects.worldObject.blop.eyes.rayCasting;
+package tools.rayCasting;
 
 import tools.rect.Rect;
 

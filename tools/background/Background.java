@@ -3,8 +3,8 @@ package tools.background;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import globalValues.Globals;
 import in.Draw;
+import system.Globals;
 import tools.rect.VRect;
 
 /**

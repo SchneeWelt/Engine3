@@ -1,4 +1,4 @@
-package objects.worldObject.blop.eyes.rayCasting;
+package tools.rayCasting;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -110,7 +110,7 @@ public class RayCastVisualizationModule implements Draw
 
 		/* visualize collision point */
 		graphics.setColor(Color.red);
-		Shapes.fillCirlce(t.getX(), t.getY(), 1, graphics);
+		Shapes.fillCirlce(t.getRoundX(), t.getRoundY(), 1, graphics);
 	}
 
 	private final float dist(Rect r1, Rect r2)

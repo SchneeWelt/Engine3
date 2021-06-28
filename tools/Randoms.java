@@ -1,4 +1,4 @@
-package tools.random;
+package tools;
 
 import java.util.Random;
 
