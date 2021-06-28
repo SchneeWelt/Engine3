@@ -3,6 +3,11 @@ package objects.abstracts;
 public class Vector
 {
 	private float[] values;
+	
+	public Vector(float[] values)
+	{
+		this.values = values;
+	}
 
 	public Vector(int length)
 	{
