@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
-import globalValues.Globals;
+import system.Globals;
 import tools.rect.Rect;
 
 public class IFrame extends JFrame
