@@ -37,6 +37,21 @@ public class Vector
 
 		return output;
 	}
+	
+	/**
+	 * Copys every value of the other vector into this vector. If the other vector
+	 * is longer as this vector than those values will not be copied. If the other
+	 * vector is shorter than this vector than the remaining values remain
+	 * unchanged.
+	 * 
+	 * @param other
+	 */
+
+	public final void copyValues(Vector other)
+	{
+		for (int i = 0; i < values.length; i++)
+			set(i, other.get(i));
+	}
 
 	public final float[] normalize()
 	{
