@@ -1,4 +1,4 @@
-package objects.hud;
+package tools.hud;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

@@ -1,11 +1,11 @@
-package objects.hud.button;
+package tools.hud.button;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 
-import objects.hud.Element;
 import tools.background.BetterBackground;
+import tools.hud.Element;
 import tools.rect.Rect;
 
 public class Button extends Element

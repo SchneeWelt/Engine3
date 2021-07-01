@@ -1,4 +1,4 @@
-package objects.abstracts;
+package tools.abstracts;
 
 import tools.printer.ErrorPrinter;
 
@@ -8,6 +8,8 @@ import tools.printer.ErrorPrinter;
 
 public class MMath
 {
+	private static ErrorPrinter print = new ErrorPrinter();
+	
 	/**
 	 * @param matrix
 	 * @param vector
@@ -18,7 +20,6 @@ public class MMath
 	{
 		if (matrix.size().getRoundH() != vector.size())
 		{
-			ErrorPrinter print = new ErrorPrinter();
 			print.print("unvalid sizes");
 			return null;
 		}
@@ -32,7 +33,7 @@ public class MMath
 			for (int j = 0; j < vector.size(); j++)
 				tempR += matrix.get(i, j) * vector.get(j);
 			
-			result.set(Math.round(tempR), i);
+			result.set(i, Math.round(tempR));
 		}
 
 		return result;

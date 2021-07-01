@@ -1,4 +1,4 @@
-package objects.abstracts;
+package tools.abstracts;
 
 public class Vector
 {
@@ -61,7 +61,7 @@ public class Vector
 	 * @param index
 	 */
 
-	public final void decrement(float decrement, int index)
+	public final void decrement(int index, float decrement)
 	{
 		values[index] -= decrement;
 	}
@@ -71,7 +71,7 @@ public class Vector
 	 * @param index
 	 */
 
-	public final void increment(float increment, int index)
+	public final void increment(int index, float increment)
 	{
 		values[index] += increment;
 	}
@@ -95,13 +95,13 @@ public class Vector
 	 * @param values
 	 */
 
-	public final void set(float[] values)
+	public final void setAll(float[] values)
 	{
 		for (int i = 0; i < this.values.length; i++)
 			this.values[i] = values[i];
 	}
 
-	public final void set(float value, int index)
+	public final void set(int index, float value)
 	{
 		values[index] = value;
 	}

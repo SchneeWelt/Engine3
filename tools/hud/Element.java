@@ -1,4 +1,4 @@
-package objects.hud;
+package tools.hud;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -9,8 +9,8 @@ import handler.MouseEventHandler;
 import handler.in.OnMousePress;
 import handler.in.OnMouseRelease;
 import in.Draw;
-import objects.abstracts.Vector;
 import system.Globals;
+import tools.abstracts.Vector;
 import tools.background.BetterBackground;
 import tools.rect.Rect;
 

@@ -1,4 +1,4 @@
-package objects.abstracts;
+package tools.abstracts;
 
 import tools.rect.Rect;
 

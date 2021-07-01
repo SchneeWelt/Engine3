@@ -1,4 +1,4 @@
-package objects.hud.button;
+package tools.hud.button;
 
 public class ButtonEvent
 {
