@@ -59,6 +59,7 @@ public class Main implements Draw
 	public final void onShutdown()
 	{
 		System.out.println("[System] shutdown..");
+		System.exit(1);
 	}
 
 	private final void sleep()
