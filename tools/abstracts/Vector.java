@@ -1,9 +1,11 @@
 package tools.abstracts;
 
+import java.util.ArrayList;
+
 public class Vector
 {
 	private float[] values;
-	
+
 	public Vector(float[] values)
 	{
 		this.values = values;
@@ -37,11 +39,11 @@ public class Vector
 
 		return output;
 	}
-	
+
 	/**
 	 * Copys every value of the other vector into this vector. If the other vector
 	 * is longer as this vector than those values will not be copied. If the other
-	 * vector is shorter than this vector than the remaining values remain
+	 * vector is shorter than this vector then the remaining values remain
 	 * unchanged.
 	 * 
 	 * @param other
@@ -51,6 +53,41 @@ public class Vector
 	{
 		for (int i = 0; i < values.length; i++)
 			set(i, other.get(i));
+	}
+
+	/**
+	 * True wenn dieser Vector in allen bereichen größer ist als der andere. Der
+	 * andere Vektor sollte die selbe größe wie dieser aufweisen, sonnst können
+	 * fehler auftreten.
+	 * 
+	 * @param other
+	 * @return
+	 */
+
+	public final boolean greater(Vector other)
+	{
+		ArrayList<Boolean> results = new ArrayList<Boolean>();
+
+		for (int i = 0; i < size(); i++)
+			results.add(this.get(i) > other.get(i));
+		
+		for (Boolean b : results)
+			if (!b)
+				return false;
+		return true;
+	}
+	
+	public boolean smaller(Vector other)
+	{
+		ArrayList<Boolean> results = new ArrayList<Boolean>();
+
+		for (int i = 0; i < size(); i++)
+			results.add(this.get(i) < other.get(i));
+		
+		for (Boolean b : results)
+			if (!b)
+				return false;
+		return true;
 	}
 
 	public final float[] normalize()
