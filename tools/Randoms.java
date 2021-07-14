@@ -54,7 +54,7 @@ public class Randoms
 
 	/**
 	 * Returns a random double between the leftBound (inklusive) and the rightBound
-	 * (inklusive)
+	 * (exklusive)
 	 * 
 	 * @param leftBound
 	 * @param rightBound
@@ -63,7 +63,6 @@ public class Randoms
 
 	public final double randomDouble(double leftBound, double rightBound)
 	{
-		rightBound++;
 		double random = r.nextDouble();
 		return leftBound + (random * (rightBound - leftBound));
 	}
