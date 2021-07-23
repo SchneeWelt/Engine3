@@ -7,24 +7,16 @@ public class Randoms
 	private Random r = new Random();
 
 	/**
-	 * Returns a random float value between 0 and rightBound (inklusieve)
-	 * 
 	 * @param rightBound
 	 * @return
 	 */
 	
 	public final float randomFloat(float rightBound)
 	{
-		rightBound++;
-		float leftBound = 0;
-		float random = r.nextFloat();
-		return leftBound + (random * (rightBound - leftBound));
+		return r.nextFloat() * rightBound;
 	}
 	
 	/**
-	 * Returns a random float value between the leftBound (inklusive) and the rightBound
-	 * (inklusive) 
-	 * 
 	 * @param leftBound
 	 * @param rightBound
 	 * @return
@@ -32,9 +24,7 @@ public class Randoms
 	
 	public final float randomFloat(float leftBound, float rightBound)
 	{
-		rightBound++;
-		float random = r.nextFloat();
-		return leftBound + (random * (rightBound - leftBound));
+		return leftBound + (r.nextFloat() * (rightBound - leftBound));
 	}
 	
 	/**
@@ -46,16 +36,10 @@ public class Randoms
 
 	public final double randomDouble(double rightBound)
 	{
-		rightBound++;
-		double leftBound = 0;
-		double random = r.nextDouble();
-		return leftBound + (random * (rightBound - leftBound));
+		return r.nextDouble() * rightBound;
 	}
 
 	/**
-	 * Returns a random double between the leftBound (inklusive) and the rightBound
-	 * (exklusive)
-	 * 
 	 * @param leftBound
 	 * @param rightBound
 	 * @return
@@ -63,39 +47,32 @@ public class Randoms
 
 	public final double randomDouble(double leftBound, double rightBound)
 	{
-		double random = r.nextDouble();
-		return leftBound + (random * (rightBound - leftBound));
+		return leftBound + (r.nextDouble() * (rightBound - leftBound));
 	}
 
 	/**
-	 * returns a random int between 0 and rightBorder (inclusive)
-	 * 
 	 * @param rightBorder
 	 * @return
 	 */
 
 	public final int randomInt(int rightBorder)
 	{
-		return r.nextInt(rightBorder + 1);
+		return r.nextInt(rightBorder);
 	}
 
 	/**
-	 * returns a random value between the right and the left border.
-	 * 
-	 * @param leftBorder  inclusive
-	 * @param rightBorder inclusive
+	 * @param leftBorder 
+	 * @param rightBorder
 	 * @return
 	 */
 
 	public final int randomInt(int leftBorder, int rightBorder)
 	{
-		int d = rightBorder + 1 - leftBorder;
+		int d = rightBorder - leftBorder;
 		return r.nextInt(d) + leftBorder;
 	}
 
 	/**
-	 * returns a true or false value with every new method call
-	 * 
 	 * @return
 	 */
 
