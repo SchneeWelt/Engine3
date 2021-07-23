@@ -109,8 +109,8 @@ public class Vector
 	}
 
 	/**
-	 * @param decrement
 	 * @param index
+	 * @param decrement
 	 */
 
 	public final void decrement(int index, float decrement)
@@ -119,8 +119,8 @@ public class Vector
 	}
 
 	/**
-	 * @param increment
 	 * @param index
+	 * @param increment
 	 */
 
 	public final void increment(int index, float increment)
