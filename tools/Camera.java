@@ -28,11 +28,32 @@ public class Camera
 
 	private Rect offset;
 
+	/**
+	 * initialisiert die Kamera und lässt sie auf punkt 0, 0
+	 * schauen.
+	 */
+	
 	public Camera()
 	{
 		offset = new Rect(0, 0);
 	}
 
+	/**
+	 * Initilisiert die Kamera und lässt sie auf einen vordefinierten 
+	 * Punkt schauen. 
+	 * 
+	 * @param xOffset
+	 * @param yOffset
+	 * @param zoom: Default = 1
+	 */
+	
+	public Camera(int xOffset, int yOffset, double zoom)
+	{
+		this.zoom = zoom;
+		
+		offset = new Rect(xOffset, yOffset);
+	}
+	
 	public final void camera(Graphics2D graphics)
 	{
 		graphics.scale(zoom, zoom);
@@ -43,29 +64,33 @@ public class Camera
 	 * Bewegt die Kamera auf eine neue Position, in dem die input parameter auf die
 	 * vorhandene Position addiert werden.
 	 * 
-	 * @param shiftX
-	 * @param shiftY
+	 * @param incrementX
+	 * @param incrementY
 	 */
 
-	public final void move(int shiftX, int shiftY)
+	public final void move(float incrementX, float incrementY)
 	{
-		offset.incrementX(shiftX);
-		offset.incrementY(shiftY);
+		offset.incrementX(incrementX);
+		offset.incrementY(incrementY);
+	}
+	
+	public final void zoom(double incrementZ)
+	{
+		zoom += incrementZ;
 	}
 
 	/**
 	 * Fokusiert die Camera auf Punkt 0, 0
 	 */
 
-	public final void collapse()
+	public final void reset()
 	{
-		offset.setX(0);
-		offset.setY(0);
+		offset.collapse();
 	}
 
-	public final Rect getOffset()
+	public final void setZoom(double zoom)
 	{
-		return offset;
+		this.zoom = zoom;
 	}
 
 	public final void setOffset(Rect offset)
@@ -73,13 +98,13 @@ public class Camera
 		this.offset = offset;
 	}
 
+	public final Rect getOffset()
+	{
+		return offset;
+	}
+
 	public final double getZoom()
 	{
 		return zoom;
-	}
-
-	public final void setZoom(double zoom)
-	{
-		this.zoom = zoom;
 	}
 }
