@@ -15,7 +15,17 @@ import tools.rect.VRect;
 
 public class Background implements Draw
 {
-	private VRect rect = buildBackground();
+	private VRect rect;
+	
+	public Background()
+	{
+		rect = buildBackground(Color.black);
+	}
+	
+	public Background(Color color)
+	{
+		rect = buildBackground(color);
+	}
 
 	@Override
 	public void draw(Graphics2D graphics)
@@ -23,13 +33,13 @@ public class Background implements Draw
 		rect.draw(graphics);
 	}
 
-	private VRect buildBackground()
+	private VRect buildBackground(Color color)
 	{
 		int x = 0;
 		int y = 0;
 		int w = Globals.SCREEN_DIMENSION.getRoundW();
 		int h = Globals.SCREEN_DIMENSION.getRoundH();
 
-		return new VRect(x, y, w, h, Color.black);
+		return new VRect(x, y, w, h, color);
 	}
 }
